@@ -1,0 +1,39 @@
+﻿@model HotelSystem.SharedKernel.ViewModels.PeriodSummary
+
+<div>
+    <h4>Period Summary</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Start)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Start)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.End)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.End)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalPayments)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TotalPayments)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MostBookedHotel)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MostBookedHotel)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LeastBookedHotel)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LeastBookedHotel)
+        </dd>
+        <dt>
+    </dl>
+</div>

@@ -1,0 +1,11 @@
+Name	NumberOfFloors	ImageName	ImageID	Rating	PostalCode	Country	City	Province	Street	Id	ManagerId
+Springs Hotel	10	generic_hotel.jpg	1541709752	4	66290	South Africa	Johannesburg	Gauteng	10 Smit Street	0627b1b8-78f9-44b8-add3-6491629bf717	4caa4efb-235e-4fc1-b3a5-a59fb7934a8e
+Blue Water Hotel	10	generic_hotel.jpg	1541709752	3	48522	South Africa	Bloemfontein	Free State	10 Orange Street	3c3afaf0-8f23-4368-8a00-44000351e1f5	0fefe25e-8edf-46c3-a3b3-fb60ee7939c4
+Green Lake Hotel	10	generic_hotel.jpg	1541709752	2	78633	South Africa	Cape Town	Western Cape	7 Vine Street	e0f20b6d-f8b5-4c02-898a-2f1933c32e79	7801e288-5c96-4faf-ad2e-4fb853efdb6d
+Panorama Hotel	10	generic_hotel.jpg	1541709752	2	20544	South Africa	Pretoria	Gauteng	39 Higveld Street	cbd0f5bd-4ef3-4c7b-b0ec-acc601432b58	e4b28107-8c29-441a-bbff-12e72adf6803
+Salt Water Hotel	10	generic_hotel.jpg	1541709752	4	17103	South Africa	Durban	Kwa-Zulu Natal	59 Beach Street	7200de17-5c4e-4d3e-82e0-1af6c511f0c3	1ac899f2-d4a2-4cc0-a418-acbc037e9a74
+Majestic Sun Hotel	10	generic_hotel.jpg	1541709752	5	45783	South Africa	Polokwane	Limpopo	15 Thabo Mbeki Street	b5c27c3f-7f3f-4751-bc5e-40794cd7acc2	e25696d0-37d3-44e3-a55c-4f34a3d1aa73
+Modest Bluff Hotel	10	generic_hotel.jpg	1541709752	2	36744	South Africa	Nelspruit	Mpumalanga	9 Cave Street	ebf7acff-8a06-46c8-be17-0d6eaf4cce0a	44856f72-e97b-438d-953c-1dc436f7becb
+Queen's Hotel	10	generic_hotel.jpg	1541709752	5	41243	South Africa	Port Elizabeth	Eastern Cape	6 Habour Street	528ebefd-c115-49ab-8fc0-47f08d022811	ee03d94b-378a-4b3d-9192-b74f1643ac1c
+Sky Hotel	10	generic_hotel.jpg	1541709752	2	34494	South Africa	Mahikeng	North West	56 Lion Street	57c74332-68ba-4168-ac26-f434042e46ab	1eeda5aa-9e72-411d-86cf-14150744e630
+Tambo Hotel	10	generic_hotel.jpg	1541709752	2	55886	South Africa	Johannesburg	Gauteng	90 Flower Street	f38debb6-4a2a-480a-bcd1-79fa33bf27f9	73ea0aed-0f0c-4412-80e1-4a828d5ddb08

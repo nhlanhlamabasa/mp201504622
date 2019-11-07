@@ -1,0 +1,33 @@
+﻿@model HotelSystem.SharedKernel.ViewModels.SummaryViewModel
+
+
+<div>
+    <h4>Summary</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalNumberOfHotels)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TotalNumberOfHotels)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalNumberOfRooms)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TotalNumberOfRooms)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalNumberOfAmenities)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TotalNumberOfAmenities)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalOfValueOfPayments)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TotalOfValueOfPayments)
+        </dd>
+    </dl>
+</div>

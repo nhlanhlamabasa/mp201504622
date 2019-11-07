@@ -1,0 +1,11 @@
+Id	FirstName	LastName	PhoneNumber	Email	PostalCode	Country	City	Town	Street	Password
+ccb315a1-ba01-49b5-8543-a6db65b3ab01	Perry 	Jordan	1234567890	perry@mail.com	12345	South Africa	Johannesburg	Benoni	19 Henschel Street	perryjordan
+4fa7a883-243b-44e5-adf1-4cbea561ee2f	Marjorie	Beck	1234567899	marjorie@mail.com	12344	South Africa	Johannesburg	Benoni	19 Henschel Street	marjoriebeck
+733a510f-9f3d-41f7-b015-a3738981ffc5	Carmen	Johnston	1234567888	carmen@mail.com	12333	South Africa	Johannesburg	Benoni	19  Henschel Street	carmenjohnston
+aa1227d4-c43d-4801-9077-0f1b8635e183	Francis 	Cruz	1234567777	francis@mail.com	12222	South Africa	Johannesburg	Benoni	19 Henschel Street	franciscruz
+7b69144f-3cf2-4bf2-a320-79b550f397ce	Kyle	Stokes	1234566666	kyle@mail.com	11111	South Africa	Johannesburg	Benoni	19 Henschel Street	kylestokes
+76e11f36-e567-4511-8073-ab0f0560f126	Thomas	Dixon	1234555555	thomas@mail.com	67899	South Africa	Johannesburg	Benoni	19 Henschel Street	thomasdixon
+6e959f76-2756-4cf9-9e7c-18d65cde7542	Marshall	Mann	1234444444	marshall@mail.com	78999	South Africa	Johannesburg	Benoni	19 Henschel Street	marshallmann
+12b1ab4c-c6fd-4d1a-9d86-40f435bb5b4b	Guadalupe	Moore	1233333333	guadalupe@mail.com	89999	South Africa	Johannesburg	Benoni	19 Henschel Street	guadalupemoore
+a44f19c2-62cf-46aa-b39d-bbe86207107e	Brent	Carroll	1222222222	brent@mail.com	99999	South Africa	Johannesburg	Benoni	19 Henschel Street	brentcarroll
+50e76f78-9fa4-49e8-a75b-06b98eae7c15	Lorena 	Houston	1111111111	lorena@mail.com	0	South Africa	Johannesburg	Benoni	19 Henschel Street	lorenahouston

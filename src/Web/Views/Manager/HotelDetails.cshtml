@@ -1,0 +1,140 @@
+﻿@model HotelSystem.SharedKernel.ViewModels.HotelViewModel
+
+@{
+    ViewData["Title"] = "HotelDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+@if (Model == null)
+{
+    <h4 class="pb-1">Error</h4>
+
+    <hr />
+
+    <div class="row">
+        <div class="col text-center">
+            <img src="~/images/error/web_hi_res_512.png" class="img-fluid rounded" height="200" width="100" />
+        </div>
+    </div>
+}
+else
+{
+    <h4 class="pb-1">@Model.Name</h4>
+
+    <p>
+        <span class="text text-lowercase">
+            <a asp-controller="Manager" asp-action="AddRoom">
+                <i class=" fa fa-plus"></i>
+                Add new room
+            </a>
+        </span>
+    </p>
+
+    <hr />
+
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-header">
+                    <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab"
+                               href="#address" role="tab" aria-controls="address" aria-selected="true">Address</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="rooms-tab" data-toggle="tab"
+                               href="#rooms" role="tab" aria-controls="rooms" aria-selected="false">Rooms</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="reports-tab" data-toggle="tab"
+                               href="#reports" role="tab" aria-controls="reports" aria-selected="false">Reports</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card-body">
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="address" role="tabpanel" aria-labelledby="address-tab">
+                            <h5 class="card-title">Address</h5>
+                            <div class="row">
+                                <div class="col">
+                                    <dl class="dl-horizontal">
+                                        <dd>
+                                            @Html.DisplayFor(model => model.Country)
+                                        </dd>
+                                        <dd>
+                                            @Html.DisplayFor(model => model.City)
+                                        </dd>
+                                        <dd>
+                                            @Html.DisplayFor(model => model.Province)
+                                        </dd>
+                                        <dd>
+                                            @Html.DisplayFor(model => model.Street)
+                                        </dd>
+                                        <dd>
+                                            @Html.DisplayFor(model => model.PostalCode)
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="rooms" role="tabpanel" aria-labelledby="rooms-tab">
+                            <h5 class="card-title">Rooms</h5>
+                                <dl class="dl-horizontal">
+                                    <dt>
+                                        Number of rooms
+                                    </dt>
+                                    <dd>
+                                        @Html.DisplayFor(model => model.NumberOfRooms)
+                                    </dd>
+                                </dl>
+                            <a asp-action="Rooms" asp-controller="Manager" asp-route-Id="@Model.Id" class="btn btn-primary">View list of rooms</a>
+                        </div>
+                        <div class="tab-pane fade" id="reports" role="tabpanel" aria-labelledby="reports-tab">
+                            <h5 class="card-title">Reports</h5>
+                            <div class="row">
+                                <div class="col">
+                                    <dl class="dl-horizontal">
+                                        <dt>
+                                            Number of bookings
+                                        </dt>
+                                        <dd>
+                                            @Html.DisplayFor(model => model.NumberOfBookings)
+                                        </dd>
+                                        <dt>
+                                            Rating
+                                        </dt>
+                                        <dd>
+                                            @Html.DisplayFor(model => model.Rating)
+                                        </dd>
+                                        <dt>
+                                            Date Created
+                                        </dt>
+                                        <dd>
+                                            @Html.DisplayFor(model => model.CreationTime)
+                                        </dd>
+                                        <dt>
+                                            Last Changed
+                                        </dt>
+                                        <dd>
+                                            @Html.DisplayFor(model => model.ModifiedDate)
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer text-muted">
+                    <div>
+                        <a asp-action="Hotels" asp-controller="Manager">Back to List</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+

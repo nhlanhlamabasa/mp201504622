@@ -1,0 +1,55 @@
+﻿@model CheckInOutViewModel
+
+
+    <div class="row">
+        <div class="col">
+            <form asp-controller="Home" asp-action="Search" method="post">
+                <div class="row">
+                    <div class="col-12 col-sm pr-sm-0">
+                        <span>
+                            <label asp-for="Arrival" class="col-form-label"></label>
+                        </span>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <i class="fa fa-calendar rounded bg-info text-light input-group-text"></i>
+                            </div>
+                            <input id="arrival" asp-for="Arrival" class="form-control travel-date" data-input placeholder="Arrival date" />
+                            <span asp-validation-for="Arrival" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm pr-sm-0">
+                        <span>
+                            <label asp-for="Departure" class="col-form-label"></label>
+                        </span>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <i class="fa fa-calendar rounded bg-info text-light input-group-text"></i>
+                            </div>
+                            <input id="departure" asp-for="Departure" class="form-control travel-date" data-input placeholder="Departure date" />
+                            <span asp-validation-for="Departure" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-sm pr-sm-0">
+                        <span>
+                            <label class="col-form-label">Email</label>
+                        </span>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <i class="fa fa-envelope rounded bg-info text-light input-group-text"></i>
+                            </div>
+                            <input asp-for="Email" class="form-control" placeholder="Email" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-sm pr-sm-0">
+                        <br />
+                        <input type="submit" value="Search for booking" class="btn btn-primary btn-block">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>

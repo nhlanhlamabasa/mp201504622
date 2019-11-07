@@ -1,0 +1,1811 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Booking.API</name>
+    </assembly>
+    <members>
+        <member name="T:Booking.API.Configurations.InvoiceConfiguration">
+            <summary>
+            Defines the <see cref="T:Booking.API.Configurations.InvoiceConfiguration" />
+            </summary>
+        </member>
+        <member name="M:Booking.API.Configurations.InvoiceConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{Booking.API.Entities.Invoice})">
+            <summary>
+            The Configure
+            </summary>
+            <param name="builder">The builder<see cref="T:Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder`1"/></param>
+        </member>
+        <member name="T:Booking.API.Configurations.LineConfiguration">
+            <summary>
+            Defines the <see cref="T:Booking.API.Configurations.InvoiceConfiguration" />
+            </summary>
+        </member>
+        <member name="M:Booking.API.Configurations.LineConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{Booking.API.Entities.Line})">
+            <summary>
+            The Configure
+            </summary>
+            <param name="builder">The builder<see cref="T:Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder`1"/></param>
+        </member>
+        <member name="T:Booking.API.Controllers.AmenityController">
+            <summary>
+            Defines the <see cref="T:Booking.API.Controllers.AmenityController" />
+            </summary>
+        </member>
+        <member name="F:Booking.API.Controllers.AmenityController._managerRepository">
+            <summary>
+            Defines the _managerRepository
+            </summary>
+        </member>
+        <member name="M:Booking.API.Controllers.AmenityController.#ctor(Booking.API.Interfaces.IManagerRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Booking.API.Controllers.AmenityController"/> class.
+            </summary>
+            <param name="managerRepository">The managerRepository<see cref="T:Booking.API.Interfaces.IManagerRepository"/></param>
+        </member>
+        <member name="M:Booking.API.Controllers.AmenityController.Get">
+            <summary>
+            The get retrieves all amenities
+            </summary>
+            <returns>The <see cref="T:System.Threading.Tasks.Task`1"/></returns>
+        </member>
+        <member name="M:Booking.API.Controllers.AmenityController.Post(HotelSystem.SharedKernel.ViewModels.AmenityViewModel)">
+            <summary>
+            The Post
+            </summary>
+            <param name="model">The model<see cref="T:HotelSystem.SharedKernel.ViewModels.AmenityViewModel"/></param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task`1"/></returns>
+        </member>
+        <member name="T:Booking.API.Controllers.BookerController">
+            <summary>
+            Defines the <see cref="T:Booking.API.Controllers.BookerController" />
+            </summary>
+        </member>
+        <member name="F:Booking.API.Controllers.BookerController._bookerRepository">
+            <summary>
+            Defines the _bookerRepository
+            </summary>
+        </member>
+        <member name="F:Booking.API.Controllers.BookerController._logger">
+            <summary>
+            Defines the _logger
+            </summary>
+        </member>
+        <member name="M:Booking.API.Controllers.BookerController.#ctor(Booking.API.Interfaces.IBookerRepository,Booking.API.Interfaces.IBookingRepository,Microsoft.Extensions.Logging.ILogger{Booking.API.Controllers.BookerController})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Booking.API.Controllers.BookerController"/> class.
+            </summary>
+            <param name="bookerRepository">The bookerRepository<see cref="T:Booking.API.Interfaces.IBookerRepository"/></param>
+            <param name="bookingRepository"></param>
+            <param name="logger">The logger<see cref="T:Microsoft.Extensions.Logging.ILogger`1"/></param>
+        </member>
+        <member name="M:Booking.API.Controllers.BookerController.Get(System.Guid,System.Nullable{System.Guid},System.Boolean)">
+            <summary>
+            Retrieves one booking or all bookings
+            </summary>
+            <param name="bookerId">The BookerId<see cref="T:System.Guid"/></param>
+            <param name="bookingId">The BookingId<see cref="T:System.Guid"/></param>
+            <param name="complaintsOnly"></param>
+            <returns>The <see cref="T:Microsoft.AspNetCore.Mvc.IActionResult"/></returns>
+        </member>
+        <member name="T:Booking.API.Controllers.BookingController">
+            <summary>
+            Defines the <see cref="T:Booking.API.Controllers.BookingController" />
+            </summary>
+        </member>
+        <member name="F:Booking.API.Controllers.BookingController._bookingRepository">
+            <summary>
+            Defines the _bookingRepository
+            </summary>
+        </member>
+        <member name="F:Booking.API.Controllers.BookingController._logger">
+            <summary>
+            Defines the _logger
+            </summary>
+        </member>
+        <member name="M:Booking.API.Controllers.BookingController.#ctor(Booking.API.Interfaces.IBookingRepository,Microsoft.Extensions.Logging.ILogger{Booking.API.Controllers.BookingController})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Booking.API.Controllers.BookingController"/> class.
+            </summary>
+            <param name="bookingRepository"></param>
+            <param name="logger">Logger</param>
+        </member>
+        <member name="M:Booking.API.Controllers.BookingController.Delete(System.Guid)">
+            <summary>
+            The Delete
+            </summary>
+            <param name="Id">The Id<see cref="T:System.Guid"/></param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task`1"/></returns>
+        </member>
+        <member name="M:Booking.API.Controllers.BookingController.Get(System.DateTime,System.DateTime,System.Guid,System.Boolean,System.Boolean,System.Guid)">
+            <summary>
+            Gets list of bookings
+            </summary>
+            <param name="Arrival">The Arrival<see cref="T:System.DateTime"/></param>
+            <param name="Departure">The Departure<see cref="T:System.DateTime"/></param>
+            <param name="BookerId">The BookerId<see cref="T:System.Guid"/></param>
+            <param name="CheckInOut">The CheckIn<see cref="T:System.Boolean"/></param>
+            <param name="FrontDesk"></param>
+            <param name="FrontDeskId"></param>
+            <returns>The <see cref="T:Microsoft.AspNetCore.Mvc.IActionResult"/></returns>
+        </member>
+        <member name="M:Booking.API.Controllers.BookingController.Get(System.Guid,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Nullable{System.Guid})">
+            <summary>
+            Gets single booking
+            </summary>
+            <param name="id">booking id</param>
+            <param name="WithInvoice">The WithInvoice<see cref="T:System.Boolean"/></param>
+            <param name="InvoiceOnly">The InvoiceOnly<see cref="T:System.Boolean"/></param>
+            <param name="complaintsOnly"></param>
+            <param name="complaintOnly"></param>
+            <param name="complaintId"></param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task`1"/></returns>
+        </member>
+        <member name="M:Booking.API.Controllers.BookingController.Post(System.Guid,System.Guid,System.DateTime,System.DateTime,System.Guid,System.Int32,System.String,System.String,System.Guid,System.Guid,System.String,System.Decimal,HotelSystem.SharedKernel.ViewModels.BookingCollections)">
+            <summary>
+            Creates booking
+            </summary>
+            <param name="HotelId">The HotelId<see cref="T:System.Guid"/></param>
+            <param name="BookingId">Booking Id <see cref="T:System.Guid"/></param>
+            <param name="Arrival">The Arrival<see cref="T:System.DateTime"/></param>
+            <param name="Departure">The Departure<see cref="T:System.DateTime"/></param>
+            <param name="BookerId">The BookerId<see cref="T:System.Guid"/></param>
+            <param name="NumberOfGuests">The NumberOfGuests<see cref="T:System.Int32"/></param>
+            <param name="Status">The Status<see cref="T:System.String"/></param>
+            <param name="HotelName">Hotel Name <see cref="T:System.String"/></param>
+            <param name="InvoiceId">Invoice id <see cref="T:System.Guid"/></param>
+            <param name="PaymentId">The PaymentId<see cref="T:System.Guid"/></param>
+            <param name="PaymentMethod">The PaymentMethod<see cref="T:System.String"/></param>
+            <param name="AmountPaid">The AmountPaid<see cref="T:System.Decimal"/></param>
+            <param name="RoomsAndLines"></param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task`1"/></returns>
+        </member>
+        <member name="M:Booking.API.Controllers.BookingController.Put(System.Guid,System.Boolean,System.Boolean,System.Boolean,System.Boolean,HotelSystem.SharedKernel.ViewModels.BookingViewModel)">
+            <summary>
+            Update Booking
+            </summary>
+            <param name="id"></param>
+            <param name="CheckIn">The CheckIn<see cref="T:System.Boolean"/></param>
+            <param name="CheckOut">The CheckOut<see cref="T:System.Boolean"/></param>
+            <param name="AddComplaint"></param>
+            <param name="RateComplaint"></param>
+            <param name="bookingViewModel"></param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task`1"/></returns>
+        </member>
+        <member name="T:Booking.API.Controllers.HotelController">
+            <summary>
+            Defines the <see cref="T:Booking.API.Controllers.HotelController" />
+            </summary>
+        </member>
+        <member name="F:Booking.API.Controllers.HotelController._hotelRepository">
+            <summary>
+            Defines the _hotelRepository
+            </summary>
+        </member>
+        <member name="M:Booking.API.Controllers.HotelController.#ctor(Booking.API.Interfaces.IHotelRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Booking.API.Controllers.HotelController"/> class.
+            </summary>
+            <param name="hotelRepository">Repository for managing hotel</param>
+        </member>
+        <member name="M:Booking.API.Controllers.HotelController.Get(System.Boolean,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Gets all hotels
+            </summary>
+            <param name="all">The all<see cref="T:System.Boolean"/></param>
+            <param name="pageIndex">The pageIndex<see cref="T:System.Int32"/></param>
+            <param name="pageSize">The pageSize<see cref="T:System.Int32"/></param>
+            <returns>The <see cref="T:Microsoft.AspNetCore.Mvc.IActionResult"/></returns>
+        </member>
+        <member name="M:Booking.API.Controllers.HotelController.Get(System.Guid,System.Boolean)">
+            <summary>
+            Gets a hotel
+            </summary>
+            <param name="id">Hotel id</param>
+            <param name="roomsOnly">The roomsOnly<see cref="T:System.Boolean"/></param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task`1"/></returns>
+        </member>
+        <member name="M:Booking.API.Controllers.HotelController.Post(HotelSystem.SharedKernel.ViewModels.HotelViewModel)">
+            <summary>
+            Creates new hotels
+            </summary>
+            <param name="hotelViewModel"></param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task`1"/></returns>
+        </member>
+        <member name="M:Booking.API.Controllers.HotelController.Put(System.Guid,HotelSystem.SharedKernel.ViewModels.HotelViewModel)">
+            <summary>
+            Updates hotel
+            </summary>
+            <param name="id"></param>
+            <param name="hotelViewModel"></param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task`1"/></returns>
+        </member>
+        <member name="T:Booking.API.Controllers.ManagerController">
+            <summary>
+            Defines the <see cref="T:Booking.API.Controllers.ManagerController" />
+            </summary>
+        </member>
+        <member name="F:Booking.API.Controllers.ManagerController._managerReposoitory">
+            <summary>
+            Defines the _managerReposoitory
+            </summary>
+        </member>
+        <member name="M:Booking.API.Controllers.ManagerController.#ctor(Booking.API.Interfaces.IManagerRepository,Booking.API.Interfaces.IBookingRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Booking.API.Controllers.ManagerController"/> class.
+            </summary>
+            <param name="managerRepository">The managerRepository<see cref="T:Booking.API.Interfaces.IManagerRepository"/></param>
+            <param name="bookingRepository"></param>
+        </member>
+        <member name="M:Booking.API.Controllers.ManagerController.Get(System.Boolean,System.Boolean,System.Boolean,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Boolean,System.Boolean,System.Nullable{System.Guid})">
+            <summary>
+            The get action for retrieving hotels
+            </summary>
+            <returns>The <see cref="T:Microsoft.AspNetCore.Mvc.IActionResult"/></returns>
+        </member>
+        <member name="T:Booking.API.Controllers.RoomController">
+            <summary>
+            Defines the <see cref="T:Booking.API.Controllers.RoomController" />
+            </summary>
+        </member>
+        <member name="F:Booking.API.Controllers.RoomController._hotelRepository">
+            <summary>
+            Defines the _hotelRepository
+            </summary>
+        </member>
+        <member name="F:Booking.API.Controllers.RoomController._logger">
+            <summary>
+            Defines the _logger
+            </summary>
+        </member>
+        <member name="F:Booking.API.Controllers.RoomController._roomRepository">
+            <summary>
+            Defines the _roomRepository
+            </summary>
+        </member>
+        <member name="M:Booking.API.Controllers.RoomController.#ctor(Booking.API.Interfaces.IRoomRepository,Booking.API.Interfaces.IHotelRepository,Microsoft.Extensions.Logging.ILogger{Booking.API.Controllers.RoomController})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Booking.API.Controllers.RoomController"/> class.
+            </summary>
+            <param name="roomRepository">The roomRepository<see cref="T:Booking.API.Interfaces.IRoomRepository"/></param>
+            <param name="hotelRepository">Hotel Repository</param>
+            <param name="logger">The logger<see cref="T:Microsoft.Extensions.Logging.ILogger`1"/></param>
+        </member>
+        <member name="M:Booking.API.Controllers.RoomController.Get(System.Guid,System.Guid)">
+            <summary>
+            Gets room by id
+            </summary>
+            <param name="hotelId">Hotel Id</param>
+            <param name="id">Room id</param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task`1"/></returns>
+        </member>
+        <member name="M:Booking.API.Controllers.RoomController.Put(System.Guid,System.Collections.Generic.ICollection{System.Guid})">
+            <summary>
+            Retrieves all selected rooms
+            </summary>
+            <param name="hotelId">Hotel Id</param>
+            <param name="SelectedRooms">Selected room ids</param>
+            <returns></returns>
+        </member>
+        <member name="M:Booking.API.Controllers.RoomController.Get(System.Guid,System.String,System.String,System.Int32)">
+            <summary>
+            Gets available rooms
+            </summary>
+            <param name="hotelId">Hotel Id</param>
+            <param name="start">Start of Travel</param>
+            <param name="end">End of Travel</param>
+            <param name="numGuests">The numGuests<see cref="T:System.Int32"/></param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task`1"/></returns>
+        </member>
+        <member name="M:Booking.API.Controllers.RoomController.Post(System.Guid,HotelSystem.SharedKernel.ViewModels.RoomViewModel)">
+            <summary>
+            Adds new room to hotel
+            </summary>
+            <param name="hotelId">Hotel id</param>
+            <param name="RoomViewModel">RoomViewModel to be added</param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task`1"/></returns>
+        </member>
+        <member name="M:Booking.API.Controllers.RoomController.Put(System.Guid,System.Guid,HotelSystem.SharedKernel.ViewModels.RoomViewModel)">
+            <summary>
+            Updates room view model
+            </summary>
+            <param name="hotelId">Hotel Id</param>
+            <param name="id">Room Id</param>
+            <param name="RoomViewModel">RoomView model to be updated</param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task`1"/></returns>
+        </member>
+        <member name="M:Booking.API.Controllers.RoomController.HotelExists(System.Guid)">
+            <summary>
+            The HotelExists
+            </summary>
+            <param name="hotelId">The hotelId<see cref="T:System.Guid"/></param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task`1"/>whose type is <see cref="T:System.Boolean"></see>/></returns>
+        </member>
+        <member name="T:Booking.API.Entities.Amenity">
+            <summary>
+            Defines the <see cref="T:Booking.API.Entities.Amenity" />
+            </summary>
+        </member>
+        <member name="M:Booking.API.Entities.Amenity.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Booking.API.Entities.Amenity"/> class.
+            </summary>
+        </member>
+        <member name="M:Booking.API.Entities.Amenity.#ctor(System.Guid,System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Booking.API.Entities.Amenity"/> class.
+            </summary>
+            <param name="Id">The Id<see cref="T:System.Guid"/></param>
+            <param name="Description">The Description<see cref="T:System.String"/></param>
+            <param name="ImageName">The ImageName<see cref="T:System.String"/></param>
+            <param name="ImageID">The ImageID<see cref="T:System.String"/></param>
+        </member>
+        <member name="P:Booking.API.Entities.Amenity.Description">
+            <summary>
+            Gets or sets the Description
+            Gets the Description
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Amenity.ImageID">
+            <summary>
+            Gets or sets the ImageID
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Amenity.ImageName">
+            <summary>
+            Gets or sets the ImageName
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Amenity.Rooms">
+            <summary>
+            Gets or sets the Rooms
+            </summary>
+        </member>
+        <member name="T:Booking.API.Entities.Booking">
+            <summary>
+            Defines the <see cref="T:Booking.API.Entities.Booking" />
+            </summary>
+        </member>
+        <member name="M:Booking.API.Entities.Booking.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Booking.API.Entities.Booking"/> class.
+            </summary>
+        </member>
+        <member name="M:Booking.API.Entities.Booking.#ctor(System.String,System.DateTime,System.DateTime,System.Int32,System.Guid,System.Collections.Generic.ICollection{Booking.API.Entities.Room},System.Guid)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Booking.API.Entities.Booking"/> class.
+            </summary>
+            <param name="HotelName">Hotel Name</param>
+            <param name="Arrival">The Arrival<see cref="T:System.DateTime"/></param>
+            <param name="Departure">The Departure<see cref="T:System.DateTime"/></param>
+            <param name="NumberOfGuests">The NumberOfGuests<see cref="T:System.Int32"/></param>
+            <param name="BookerId">The BookerId<see cref="T:System.Guid"/></param>
+            <param name="SelectedRooms"></param>
+            <param name="HotelId">The HotelId<see cref="T:System.Guid"/></param>
+        </member>
+        <member name="P:Booking.API.Entities.Booking.Arrival">
+            <summary>
+            Gets or sets the Arrival
+            Gets the Arrival
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Booking.BookerId">
+            <summary>
+            Gets or sets the BookerId
+            Gets the BookerId
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Booking.CheckInCheckList">
+            <summary>
+            Gets or sets the CheckInCheckList
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Booking.CheckInPerson">
+            <summary>
+            Gets or sets the CheckInPerson
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Booking.CheckOutPerson">
+            <summary>
+            Gets or sets the CheckOutPerson
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Booking.Complaints">
+            <summary>
+            Gets or sets the Complaints
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Booking.Departure">
+            <summary>
+            Gets or sets the Departure
+            Gets the Departure
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Booking.HotelId">
+            <summary>
+            Gets or sets the HotelId
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Booking.HotelName">
+            <summary>
+            Gets or sets the HotelName
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Booking.Invoice">
+            <summary>
+            Gets or sets the Invoice
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Booking.NumberOfGuests">
+            <summary>
+            Gets or sets the NumberOfGuests
+            Gets the NumberOfGuests
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Booking.RoomBookings">
+            <summary>
+            Gets or sets the RoomBookings
+            Gets the RoomBookings
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Booking.SelectedRooms">
+            <summary>
+            Gets or sets the SelectedRooms
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Booking.Status">
+            <summary>
+            Gets or sets the Status
+            </summary>
+        </member>
+        <member name="M:Booking.API.Entities.Booking.AddRoom(Booking.API.Entities.Room)">
+            <summary>
+            The AddRoom
+            </summary>
+            <param name="room">The room<see cref="T:Booking.API.Entities.Room"/></param>
+        </member>
+        <member name="M:Booking.API.Entities.Booking.setID(System.Guid)">
+            <summary>
+            The setID
+            </summary>
+            <param name="Id">The Id<see cref="T:System.Guid"/></param>
+        </member>
+        <member name="T:Booking.API.Entities.CheckInCheckList">
+            <summary>
+            Defines the <see cref="T:Booking.API.Entities.CheckInCheckList" />
+            </summary>
+        </member>
+        <member name="M:Booking.API.Entities.CheckInCheckList.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Booking.API.Entities.CheckInCheckList"/> class.
+            </summary>
+        </member>
+        <member name="M:Booking.API.Entities.CheckInCheckList.#ctor(System.Boolean,System.Boolean,System.Boolean,System.Guid)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Booking.API.Entities.CheckInCheckList"/> class.
+            </summary>
+            <param name="KeysReceived">The KeysReceived<see cref="T:System.Boolean"/></param>
+            <param name="AllAmenities">The AllAmenities<see cref="T:System.Boolean"/></param>
+            <param name="PrintedRecepiet">The PrintedRecepiet<see cref="T:System.Boolean"/></param>
+            <param name="BookingId">The BookingId<see cref="T:System.Guid"/></param>
+        </member>
+        <member name="P:Booking.API.Entities.CheckInCheckList.AllAmenities">
+            <summary>
+            Gets or sets a value indicating whether AllAmenities
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.CheckInCheckList.Booking">
+            <summary>
+            Gets or sets the Booking
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.CheckInCheckList.BookingId">
+            <summary>
+            Gets or sets the BookingId
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.CheckInCheckList.KeysReceived">
+            <summary>
+            Gets or sets a value indicating whether KeysReceived
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.CheckInCheckList.PrintedRecepiet">
+            <summary>
+            Gets or sets a value indicating whether PrintedRecepiet
+            </summary>
+        </member>
+        <member name="T:Booking.API.Entities.Complaint">
+            <summary>
+            Defines the <see cref="T:Booking.API.Entities.Complaint" />
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Complaint.Booking">
+            <summary>
+            Gets or sets the Booking
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Complaint.BookingId">
+            <summary>
+            Gets or sets the BookingId
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Complaint.ComplainType">
+            <summary>
+            Gets or sets the ComplainType
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Complaint.Description">
+            <summary>
+            Gets or sets the Description
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Complaint.IsResolved">
+            <summary>
+            Gets or sets a value indicating whether IsResolved
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Complaint.LevelOfSatisfaction">
+            <summary>
+            Gets or sets the LevelOfSatisfaction
+            </summary>
+        </member>
+        <member name="T:Booking.API.Entities.Hotel">
+            <summary>
+            Defines the <see cref="T:Booking.API.Entities.Hotel" />
+            </summary>
+        </member>
+        <member name="M:Booking.API.Entities.Hotel.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Booking.API.Entities.Hotel"/> class.
+            </summary>
+        </member>
+        <member name="M:Booking.API.Entities.Hotel.#ctor(System.Guid,System.String,HotelSystem.SharedKernel.Ratings,System.String,System.String,HotelSystem.SharedKernel.ContactDetails,HotelSystem.SharedKernel.Address)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Booking.API.Entities.Hotel"/> class.
+            </summary>
+            <param name="Id">The Id<see cref="T:System.Guid"/></param>
+            <param name="Name">The Name<see cref="T:System.String"/></param>
+            <param name="Rating">The Rating<see cref="T:HotelSystem.SharedKernel.Ratings"/></param>
+            <param name="ImageName">The ImageName<see cref="T:System.String"/></param>
+            <param name="ImageID">The ImageID<see cref="T:System.String"/></param>
+            <param name="ContactDetails">The ContactDetails<see cref="T:HotelSystem.SharedKernel.ContactDetails"/></param>
+            <param name="Address">The Address<see cref="T:HotelSystem.SharedKernel.Address"/></param>
+        </member>
+        <member name="P:Booking.API.Entities.Hotel.City">
+            <summary>
+            Gets or sets the City
+            Gets the City
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Hotel.Country">
+            <summary>
+            Gets or sets the Country
+            Gets the Country
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Hotel.ImageID">
+            <summary>
+            Gets or sets the ImageID
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Hotel.ImageName">
+            <summary>
+            Gets or sets the ImageName
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Hotel.ManagerId">
+            <summary>
+            Gets or sets the ManagerId
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Hotel.Name">
+            <summary>
+            Gets or sets the Name
+            Gets the Name
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Hotel.NumberOfBookings">
+            <summary>
+            Gets or sets the NumberOfBookings
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Hotel.NumberOfRooms">
+            <summary>
+            Gets or sets the NumberOfRooms
+            Gets the NumberOfRooms
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Hotel.PostalCode">
+            <summary>
+            Gets or sets the PostalCode
+            Gets the PostalCode
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Hotel.Province">
+            <summary>
+            Gets or sets the Province
+            Gets the Province
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Hotel.Rating">
+            <summary>
+            Gets or sets the Rating
+            Gets the Rating
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Hotel.Rooms">
+            <summary>
+            Gets or sets the Rooms
+            Gets the Rooms
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Hotel.Street">
+            <summary>
+            Gets the Street
+            </summary>
+        </member>
+        <member name="M:Booking.API.Entities.Hotel.CalculateNumberOfBookings">
+            <summary>
+            The CalculateNumberOfBookings
+            </summary>
+        </member>
+        <member name="M:Booking.API.Entities.Hotel.CalculateNumberOfRooms">
+            <summary>
+            The CalculateNumberOfRooms
+            </summary>
+        </member>
+        <member name="T:Booking.API.Entities.Invoice">
+            <summary>
+            Defines the <see cref="T:Booking.API.Entities.Invoice" />
+            </summary>
+        </member>
+        <member name="M:Booking.API.Entities.Invoice.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Booking.API.Entities.Invoice"/> class.
+            </summary>
+        </member>
+        <member name="M:Booking.API.Entities.Invoice.#ctor(System.Guid,System.Guid,System.Guid)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Booking.API.Entities.Invoice"/> class.
+            </summary>
+            <param name="Id">The Id<see cref="T:System.Guid"/></param>
+            <param name="AppUser_BookerId">The AppUser_BookerId<see cref="T:System.Guid"/></param>
+            <param name="BookingId"></param>
+        </member>
+        <member name="P:Booking.API.Entities.Invoice.AppUser_BookerId">
+            <summary>
+            Gets or sets the AppUser_BookerId
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Invoice.Booking">
+            <summary>
+            Gets or sets the Booking
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Invoice.BookingId">
+            <summary>
+            Gets or sets the BookingId
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Invoice.Inv_Date">
+            <summary>
+            Gets or sets the Inv_Date
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Invoice.Lines">
+            <summary>
+            Gets or sets the Lines
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Invoice.Payment">
+            <summary>
+            Gets or sets the Payment
+            </summary>
+        </member>
+        <member name="M:Booking.API.Entities.Invoice.Total">
+            <summary>
+            The Total
+            </summary>
+            <returns>The <see cref="T:System.Decimal"/></returns>
+        </member>
+        <member name="T:Booking.API.Entities.Line">
+            <summary>
+            Defines the <see cref="T:Booking.API.Entities.Line" />
+            </summary>
+        </member>
+        <member name="M:Booking.API.Entities.Line.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Booking.API.Entities.Line"/> class.
+            </summary>
+        </member>
+        <member name="M:Booking.API.Entities.Line.#ctor(System.Guid,System.Guid,System.Decimal,System.Int32,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Booking.API.Entities.Line"/> class.
+            </summary>
+            <param name="Id">The Id<see cref="T:System.Guid"/></param>
+            <param name="InvoiceId">The InvoiceId<see cref="T:System.Guid"/></param>
+            <param name="Line_Price">The Line_Price<see cref="T:System.Decimal"/></param>
+            <param name="Line_Units">The Line_Units<see cref="T:System.Int32"/></param>
+            <param name="Room_Type">The Room_Type<see cref="T:System.String"/></param>
+        </member>
+        <member name="P:Booking.API.Entities.Line.Invoice">
+            <summary>
+            Gets or sets the Invoice
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Line.InvoiceId">
+            <summary>
+            Gets or sets the InvoiceId
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Line.Line_Price">
+            <summary>
+            Gets or sets the Line_Price
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Line.Line_Units">
+            <summary>
+            Gets or sets the Line_Units
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Line.Room_Type">
+            <summary>
+            Gets or sets the Room_Type
+            </summary>
+        </member>
+        <member name="T:Booking.API.Entities.Payment">
+            <summary>
+            Defines the <see cref="T:Booking.API.Entities.Payment" />
+            </summary>
+        </member>
+        <member name="M:Booking.API.Entities.Payment.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Booking.API.Entities.Payment"/> class.
+            </summary>
+        </member>
+        <member name="M:Booking.API.Entities.Payment.#ctor(System.Guid,System.Guid,System.String,System.Decimal)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Booking.API.Entities.Payment"/> class.
+            </summary>
+            <param name="Id">The Id<see cref="T:System.Guid"/></param>
+            <param name="InvoiceId">The InvoiceId<see cref="T:System.Guid"/></param>
+            <param name="Payment_Method">The Payment_Method<see cref="T:System.String"/></param>
+            <param name="AmountPaid">The AmountPaid<see cref="T:System.Decimal"/></param>
+        </member>
+        <member name="P:Booking.API.Entities.Payment.AmountPaid">
+            <summary>
+            Gets or sets the AmountPaid
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Payment.Invoice">
+            <summary>
+            Gets or sets the Invoice
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Payment.InvoiceId">
+            <summary>
+            Gets or sets the InvoiceId
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Payment.Payment_Method">
+            <summary>
+            Gets or sets the Payment_Method
+            </summary>
+        </member>
+        <member name="T:Booking.API.Entities.Room">
+            <summary>
+            Defines the <see cref="T:Booking.API.Entities.Room" />
+            </summary>
+        </member>
+        <member name="M:Booking.API.Entities.Room.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Booking.API.Entities.Room"/> class.
+            </summary>
+        </member>
+        <member name="M:Booking.API.Entities.Room.#ctor(System.Guid,System.Int32,Booking.API.Entities.RoomTypeEnum,System.Guid,System.Collections.Generic.ICollection{Booking.API.Entities.RoomBooking},System.Collections.Generic.ICollection{Booking.API.Entities.RoomAmenity},System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Booking.API.Entities.Room"/> class.
+            </summary>
+            <param name="Id">The Id<see cref="T:System.Guid"/></param>
+            <param name="RoomNumber">The RoomNumber<see cref="T:System.Int32"/></param>
+            <param name="type">The type<see cref="T:Booking.API.Entities.RoomTypeEnum"/></param>
+            <param name="HotelId">The HotelId<see cref="T:System.Guid"/></param>
+            <param name="RoomBookings">The RoomBookings<see cref="T:System.Collections.Generic.ICollection`1"/></param>
+            <param name="Amenities">The Amenities<see cref="T:System.Collections.Generic.ICollection`1"/></param>
+            <param name="HotelName">The HotelName<see cref="T:System.String"/></param>
+        </member>
+        <member name="M:Booking.API.Entities.Room.#ctor(System.Guid,System.Int32,Booking.API.Entities.RoomTypeEnum,System.Guid,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Booking.API.Entities.Room"/> class.
+            </summary>
+            <param name="Id">The Id<see cref="T:System.Guid"/></param>
+            <param name="RoomNumber">The RoomNumber<see cref="T:System.Int32"/></param>
+            <param name="type">The type<see cref="T:Booking.API.Entities.RoomTypeEnum"/></param>
+            <param name="HotelId">The HotelId<see cref="T:System.Guid"/></param>
+            <param name="HotelName">The HotelName<see cref="T:System.String"/></param>
+        </member>
+        <member name="M:Booking.API.Entities.Room.#ctor(System.Guid,System.Int32,Booking.API.Entities.RoomTypeEnum,Booking.API.Entities.Hotel)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Booking.API.Entities.Room"/> class.
+            </summary>
+            <param name="Id">The Id<see cref="T:System.Guid"/></param>
+            <param name="RoomNumber">The RoomNumber<see cref="T:System.Int32"/></param>
+            <param name="type">The type<see cref="T:Booking.API.Entities.RoomTypeEnum"/></param>
+            <param name="Hotel">The Hotel<see cref="P:Booking.API.Entities.Room.Hotel"/></param>
+        </member>
+        <member name="M:Booking.API.Entities.Room.#ctor(Booking.API.Entities.Room)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Booking.API.Entities.Room"/> class.
+            </summary>
+            <param name="room">The room<see cref="T:Booking.API.Entities.Room"/></param>
+        </member>
+        <member name="P:Booking.API.Entities.Room.Amenities">
+            <summary>
+            Gets or sets the Amenities
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Room.Capacity">
+            <summary>
+            Gets or sets the Capacity
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Room.Cost">
+            <summary>
+            Gets or sets the Cost
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Room.Hotel">
+            <summary>
+            Gets or sets the Hotel
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Room.HotelId">
+            <summary>
+            Gets or sets the HotelId
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Room.HotelName">
+            <summary>
+            Gets or sets the HotelName
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Room.ImageID">
+            <summary>
+            Gets or sets the ImageID
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Room.ImageName">
+            <summary>
+            Gets or sets the ImageName
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Room.RoomBookings">
+            <summary>
+            Gets or sets the RoomBookings
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Room.RoomNumber">
+            <summary>
+            Gets or sets the RoomNumber
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Room.RoomType">
+            <summary>
+            Gets or sets the RoomType
+            </summary>
+        </member>
+        <member name="T:Booking.API.Entities.RoomAmenity">
+            <summary>
+            Defines the <see cref="T:Booking.API.Entities.RoomAmenity" />
+            </summary>
+        </member>
+        <member name="M:Booking.API.Entities.RoomAmenity.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Booking.API.Entities.RoomAmenity"/> class.
+            </summary>
+        </member>
+        <member name="M:Booking.API.Entities.RoomAmenity.#ctor(Booking.API.Entities.Room,Booking.API.Entities.Amenity)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Booking.API.Entities.RoomAmenity"/> class.
+            </summary>
+            <param name="room">The room<see cref="P:Booking.API.Entities.RoomAmenity.Room"/></param>
+            <param name="amenity">The amenity<see cref="P:Booking.API.Entities.RoomAmenity.Amenity"/></param>
+        </member>
+        <member name="P:Booking.API.Entities.RoomAmenity.Amenity">
+            <summary>
+            Gets or sets the Amenity
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.RoomAmenity.AmenityId">
+            <summary>
+            Gets or sets the AmenityId
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.RoomAmenity.Room">
+            <summary>
+            Gets or sets the Room
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.RoomAmenity.RoomId">
+            <summary>
+            Gets or sets the RoomId
+            </summary>
+        </member>
+        <member name="T:Booking.API.Entities.RoomBooking">
+            <summary>
+            Defines the <see cref="T:Booking.API.Entities.RoomBooking" />
+            </summary>
+        </member>
+        <member name="M:Booking.API.Entities.RoomBooking.#ctor(Booking.API.Entities.Room,Booking.API.Entities.Booking)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Booking.API.Entities.RoomBooking"/> class.
+            </summary>
+            <param name="room">The room<see cref="P:Booking.API.Entities.RoomBooking.Room"/></param>
+            <param name="booking">The booking<see cref="P:Booking.API.Entities.RoomBooking.Booking"/></param>
+        </member>
+        <member name="M:Booking.API.Entities.RoomBooking.#ctor">
+            <summary>
+            Prevents a default instance of the <see cref="T:Booking.API.Entities.RoomBooking"/> class from being created.
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.RoomBooking.Arrival">
+            <summary>
+            Gets the Arrival
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.RoomBooking.Booking">
+            <summary>
+            Gets the Booking
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.RoomBooking.BookingId">
+            <summary>
+            Gets the BookingId
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.RoomBooking.Departure">
+            <summary>
+            Gets the Departure
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.RoomBooking.Room">
+            <summary>
+            Gets the Room
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.RoomBooking.RoomId">
+            <summary>
+            Gets the RoomId
+            </summary>
+        </member>
+        <member name="T:Booking.API.Entities.RoomTypeEnum">
+            <summary>
+            Defines the <see cref="T:Booking.API.Entities.RoomTypeEnum" />
+            </summary>
+        </member>
+        <member name="M:Booking.API.Entities.RoomTypeEnum.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Booking.API.Entities.RoomTypeEnum"/> class.
+            </summary>
+        </member>
+        <member name="M:Booking.API.Entities.RoomTypeEnum.#ctor(System.Int32,System.Int32,System.Decimal,System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Booking.API.Entities.RoomTypeEnum"/> class.
+            </summary>
+            <param name="Id">The Id<see cref="T:System.Int32"/></param>
+            <param name="Capacity">The Capacity<see cref="T:System.Int32"/></param>
+            <param name="Cost">The Cost<see cref="T:System.Decimal"/></param>
+            <param name="Type">The Type<see cref="T:System.String"/></param>
+            <param name="ImageName">The ImageName<see cref="T:System.String"/></param>
+            <param name="ImageID">The ImageID<see cref="T:System.String"/></param>
+        </member>
+        <member name="P:Booking.API.Entities.RoomTypeEnum.ImageID">
+            <summary>
+            Gets or sets the ImageID
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.RoomTypeEnum.Capacity">
+            <summary>
+            Gets or sets the Capacity
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.RoomTypeEnum.Cost">
+            <summary>
+            Gets or sets the Cost
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.RoomTypeEnum.ImageName">
+            <summary>
+            Gets or sets the ImageName
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.RoomTypeEnum.Type">
+            <summary>
+            Gets or sets the Type
+            </summary>
+        </member>
+        <member name="T:Booking.API.Extensions.ModelBuilderExtensions">
+            <summary>
+            Defines the <see cref="T:Booking.API.Extensions.ModelBuilderExtensions" />
+            </summary>
+        </member>
+        <member name="M:Booking.API.Extensions.ModelBuilderExtensions.Seed(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            The Seed
+            </summary>
+            <param name="modelBuilder">The modelBuilder<see cref="T:Microsoft.EntityFrameworkCore.ModelBuilder"/></param>
+        </member>
+        <member name="T:Booking.API.Interfaces.IBookerRepository">
+            <summary>
+            Defines the <see cref="T:Booking.API.Interfaces.IBookerRepository" />
+            </summary>
+        </member>
+        <member name="M:Booking.API.Interfaces.IBookerRepository.GetBookingByBookerId(System.Guid,System.Guid)">
+            <summary>
+            The GetBookingByBookerId
+            </summary>
+            <param name="bookerId">The bookerId<see cref="T:System.Guid"/></param>
+            <param name="bookingId">The bookingId<see cref="T:System.Guid"/></param>
+            <returns>The <see cref="T:Booking.API.Entities.Booking"/></returns>
+        </member>
+        <member name="M:Booking.API.Interfaces.IBookerRepository.GetBookingsByBookerId(System.Guid,System.Int32,System.Int32)">
+            <summary>
+            The GetBookingsByBookerId
+            </summary>
+            <param name="BoookerId">The BoookerId<see cref="T:System.Guid"/></param>
+            <param name="pageIndex">The pageIndex<see cref="T:System.Int32"/></param>
+            <param name="pageSize">The pageSize<see cref="T:System.Int32"/></param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task`1"/> where T is<see cref="T:HotelSystem.SharedKernel.Models.PaginatedList`1"/> where R is <see cref="T:Booking.API.Entities.Booking"></see></returns>
+        </member>
+        <member name="M:Booking.API.Interfaces.IBookerRepository.GetBookingsByBookerId(System.Guid)">
+            <summary>
+            The GetBookingsByBookerId
+            </summary>
+            <param name="bookerId">The bookerId<see cref="T:System.Guid"/></param>
+            <returns>The <see cref="T:System.Collections.Generic.ICollection`1"/></returns>
+        </member>
+        <member name="T:Booking.API.Interfaces.IBookingRepository">
+            <summary>
+            Booking respository
+            </summary>
+        </member>
+        <member name="M:Booking.API.Interfaces.IBookingRepository.AddComplaint(System.Guid,Booking.API.Entities.Complaint)">
+            <summary>
+            The AddComplaint
+            </summary>
+            <param name="id">The id<see cref="T:System.Guid"/></param>
+            <param name="complaint">The complaint<see cref="T:Booking.API.Entities.Complaint"/></param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task"/></returns>
+        </member>
+        <member name="M:Booking.API.Interfaces.IBookingRepository.CheckIn(System.Guid,System.Guid,Booking.API.Entities.CheckInCheckList)">
+            <summary>
+            The CheckIn
+            </summary>
+            <param name="bookingId">The bookingId<see cref="T:System.Guid"/></param>
+            <param name="CheckInPerson">The CheckInPerson<see cref="T:System.Guid"/></param>
+            <param name="checkInCheckList">The checkInCheckList<see cref="T:Booking.API.Entities.CheckInCheckList"/></param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task`1"/></returns>
+        </member>
+        <member name="M:Booking.API.Interfaces.IBookingRepository.CheckOut(System.Guid,System.Guid)">
+            <summary>
+            The CheckOut
+            </summary>
+            <param name="bookingId">The bookingId<see cref="T:System.Guid"/></param>
+            <param name="CheckOutPerson">The CheckOutPerson<see cref="T:System.Guid"/></param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task`1"/></returns>
+        </member>
+        <member name="M:Booking.API.Interfaces.IBookingRepository.DeleteBooking(System.Guid)">
+            <summary>
+            The DeleteBooking
+            </summary>
+            <param name="id">The id<see cref="T:System.Guid"/></param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task"/></returns>
+        </member>
+        <member name="M:Booking.API.Interfaces.IBookingRepository.GetBookingById(System.Guid,System.Boolean)">
+            <summary>
+            Gets booking
+            </summary>
+            <param name="id">Booking id</param>
+            <param name="WithInvoice">The WithInvoice<see cref="T:System.Boolean"/></param>
+            <returns></returns>
+        </member>
+        <member name="M:Booking.API.Interfaces.IBookingRepository.GetBookingComplaints(System.Guid)">
+            <summary>
+            The GetBookingComplaints
+            </summary>
+            <param name="id">The id<see cref="T:System.Guid"/></param>
+            <returns>The <see cref="!:Task&lt;ICollection&lt;Complaint&gt;&gt;"/></returns>
+        </member>
+        <member name="M:Booking.API.Interfaces.IBookingRepository.GetBookings">
+            <summary>
+            The GetBookings
+            </summary>
+            <returns>The <see cref="T:System.Collections.Generic.ICollection`1"/></returns>
+        </member>
+        <member name="M:Booking.API.Interfaces.IBookingRepository.GetBookings(System.Int32,System.Int32)">
+            <summary>
+            Gets list of bookings
+            </summary>
+            <param name="pageIndex">The pageIndex<see cref="T:System.Int32"/></param>
+            <param name="pageSize">The pageSize<see cref="T:System.Int32"/></param>
+            <returns>The <see cref="T:HotelSystem.SharedKernel.Models.PaginatedList`1"/> where T is <see cref="T:Booking.API.Entities.Booking"/></returns>
+        </member>
+        <member name="M:Booking.API.Interfaces.IBookingRepository.GetHotel(System.Guid)">
+            <summary>
+            The GetHotel
+            </summary>
+            <param name="hotelId">The hotelId<see cref="T:System.Guid"/></param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task`1"/></returns>
+        </member>
+        <member name="M:Booking.API.Interfaces.IBookingRepository.GetInvoice(System.Guid)">
+            <summary>
+            The GetInvoice
+            </summary>
+            <param name="InvoiceId">The InvoiceId<see cref="T:System.Guid"/></param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task`1"/></returns>
+        </member>
+        <member name="M:Booking.API.Interfaces.IBookingRepository.GetInvoiceByBookingId(System.Guid)">
+            <summary>
+            The GetInvoiceByBookingId
+            </summary>
+            <param name="BookingId">The BookingId<see cref="T:System.Guid"/></param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task`1"/></returns>
+        </member>
+        <member name="M:Booking.API.Interfaces.IBookingRepository.GetSelectedRooms(System.Guid)">
+            <summary>
+            The GetSelectedRooms
+            </summary>
+            <param name="BookingId">The BookingId<see cref="T:System.Guid"/></param>
+            <returns>The <see cref="T:System.Collections.Generic.List`1"/></returns>
+        </member>
+        <member name="M:Booking.API.Interfaces.IBookingRepository.InsertBooking(Booking.API.Entities.Booking)">
+            <summary>
+            Creates bookings
+            </summary>
+            <param name="booking">Booking</param>
+            <returns>The <see cref="T:HotelSystem.SharedKernel.Models.PaginatedList`1"/> where T is <see cref="T:Booking.API.Entities.Booking"/></returns>
+        </member>
+        <member name="M:Booking.API.Interfaces.IBookingRepository.InsertRoomBooking(Booking.API.Entities.RoomBooking)">
+            <summary>
+            The InsertRoomBooking
+            </summary>
+            <param name="roomBooking">The roomBooking<see cref="T:Booking.API.Entities.RoomBooking"/></param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task`1"/></returns>
+        </member>
+        <member name="M:Booking.API.Interfaces.IBookingRepository.InsertRoomBookings(System.Collections.Generic.ICollection{Booking.API.Entities.RoomBooking})">
+            <summary>
+            The InsertRoomBookings
+            </summary>
+            <param name="roomBookings">The roomBookings<see cref="T:System.Collections.Generic.ICollection`1"/></param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task`1"/></returns>
+        </member>
+        <member name="M:Booking.API.Interfaces.IBookingRepository.PayInvoice(Booking.API.Entities.Payment)">
+            <summary>
+            The PayInvoice
+            </summary>
+            <param name="payment">The payment<see cref="T:Booking.API.Entities.Payment"/></param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task`1"/></returns>
+        </member>
+        <member name="M:Booking.API.Interfaces.IBookingRepository.SearchBooking(System.DateTime,System.DateTime,System.Guid)">
+            <summary>
+            The SearchBooking
+            </summary>
+            <param name="arrival">The arrival<see cref="T:System.DateTime"/></param>
+            <param name="departure">The departure<see cref="T:System.DateTime"/></param>
+            <param name="bookerId">The bookerId<see cref="T:System.Guid"/></param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task`1"/></returns>
+        </member>
+        <member name="M:Booking.API.Interfaces.IBookingRepository.UpdateBooking(Booking.API.Entities.Booking)">
+            <summary>
+            Updates booking
+            </summary>
+            <param name="booking"></param>
+            <returns>The <see cref="T:HotelSystem.SharedKernel.Models.PaginatedList`1"/> where T is <see cref="T:Booking.API.Entities.Booking"/></returns>
+        </member>
+        <member name="M:Booking.API.Interfaces.IBookingRepository.UpdateBookingInvoice(Booking.API.Entities.Booking)">
+            <summary>
+            The UpdateBookingInvoice
+            </summary>
+            <param name="booking">The booking<see cref="T:Booking.API.Entities.Booking"/></param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task`1"/></returns>
+        </member>
+        <member name="M:Booking.API.Interfaces.IBookingRepository.UpdateComplaint(System.Guid,Booking.API.Entities.Complaint)">
+            <summary>
+            The UpdateComplaint
+            </summary>
+            <param name="id">The id<see cref="T:System.Guid"/></param>
+            <param name="complaint">The complaint<see cref="T:Booking.API.Entities.Complaint"/></param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task`1"/></returns>
+        </member>
+        <member name="T:Booking.API.Interfaces.IHotelRepository">
+            <summary>
+            Hotel service interface
+            </summary>
+        </member>
+        <member name="M:Booking.API.Interfaces.IHotelRepository.GetHotelById(System.Guid)">
+            <summary>
+            Gets hotel
+            </summary>
+            <param name="Id">Hotel Id</param>
+            <returns>Hotel with given Id</returns>
+        </member>
+        <member name="M:Booking.API.Interfaces.IHotelRepository.GetAllRooms(System.Guid)">
+            <summary>
+            The GetAllRooms
+            </summary>
+            <param name="Id">The Id<see cref="T:System.Guid"/></param>
+            <returns>The <see cref="!:Task&lt;ICollection&lt;Room&gt;&gt;"/></returns>
+        </member>
+        <member name="M:Booking.API.Interfaces.IHotelRepository.GetHotels">
+            <summary>
+            The GetHotels
+            </summary>
+            <returns>The <see cref="T:System.Collections.Generic.ICollection`1"/></returns>
+        </member>
+        <member name="M:Booking.API.Interfaces.IHotelRepository.GetHotels(System.Int32,System.Int32)">
+            <summary>
+            Gets hotels
+            </summary>
+            <param name="pageIndex">The pageIndex<see cref="T:System.Int32"/></param>
+            <param name="pageSize">The pageSize<see cref="T:System.Int32"/></param>
+            <returns>The <see cref="T:HotelSystem.SharedKernel.Models.PaginatedList`1"/></returns>
+        </member>
+        <member name="M:Booking.API.Interfaces.IHotelRepository.InsertHotel(Booking.API.Entities.Hotel)">
+            <summary>
+            Creates new hotel
+            </summary>
+            <param name="hotel">A hotel</param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task`1"/></returns>
+        </member>
+        <member name="M:Booking.API.Interfaces.IHotelRepository.UpdateHotel(Booking.API.Entities.Hotel)">
+            <summary>
+            Updates hotel
+            </summary>
+            <param name="hotel">Hotel to be updated</param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task`1"/></returns>
+        </member>
+        <member name="T:Booking.API.Interfaces.IManagerRepository">
+            <summary>
+            Defines the <see cref="T:Booking.API.Interfaces.IManagerRepository" />
+            </summary>
+        </member>
+        <member name="M:Booking.API.Interfaces.IManagerRepository.AddHotel(Booking.API.Entities.Hotel)">
+            <summary>
+            The AddHotel
+            </summary>
+            <param name="hotel">The hotel<see cref="T:Booking.API.Entities.Hotel"/></param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task`1"/></returns>
+        </member>
+        <member name="M:Booking.API.Interfaces.IManagerRepository.AddRoom(System.Guid,Booking.API.Entities.Room)">
+            <summary>
+            The AddRoom
+            </summary>
+            <param name="HotelId">The HotelId<see cref="T:System.Guid"/></param>
+            <param name="room">The room<see cref="T:Booking.API.Entities.Room"/></param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task`1"/></returns>
+        </member>
+        <member name="M:Booking.API.Interfaces.IManagerRepository.EditHotel(System.Guid,Booking.API.Entities.Hotel)">
+            <summary>
+            The EditHotel
+            </summary>
+            <param name="HotelId">The HotelId<see cref="T:System.Guid"/></param>
+            <param name="hotel">The hotel<see cref="T:Booking.API.Entities.Hotel"/></param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task`1"/></returns>
+        </member>
+        <member name="M:Booking.API.Interfaces.IManagerRepository.EditRoom(System.Guid,System.Guid,Booking.API.Entities.Room)">
+            <summary>
+            The EditRoom
+            </summary>
+            <param name="HotelId">The HotelId<see cref="T:System.Guid"/></param>
+            <param name="RoomId">The RoomId<see cref="T:System.Guid"/></param>
+            <param name="room">The room<see cref="T:Booking.API.Entities.Room"/></param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task`1"/></returns>
+        </member>
+        <member name="M:Booking.API.Interfaces.IManagerRepository.GetHotel(System.Guid,System.Boolean)">
+            <summary>
+            The GetHotel
+            </summary>
+            <param name="HotelId">The HotelId<see cref="T:System.Guid"/></param>
+            <param name="WithDetails">The WithDetails<see cref="T:System.Boolean"/></param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task`1"/></returns>
+        </member>
+        <member name="M:Booking.API.Interfaces.IManagerRepository.GetHotels">
+            <summary>
+            The GetHotels
+            </summary>
+            <returns>The <see cref="!:Task&lt;ICollection&lt;Hotel&gt;&gt;"/></returns>
+        </member>
+        <member name="M:Booking.API.Interfaces.IManagerRepository.GetRoom(System.Guid,System.Guid,System.Boolean)">
+            <summary>
+            The GetRoom
+            </summary>
+            <param name="HotelId">The HotelId<see cref="T:System.Guid"/></param>
+            <param name="RoomId">The RoomId<see cref="T:System.Guid"/></param>
+            <param name="WithDetails">The WithDetails<see cref="T:System.Boolean"/></param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task`1"/></returns>
+        </member>
+        <member name="M:Booking.API.Interfaces.IManagerRepository.GetRooms(System.Guid)">
+            <summary>
+            The GetRooms
+            </summary>
+            <param name="HotelId">The HotelId<see cref="T:System.Guid"/></param>
+            <returns>The <see cref="!:Task&lt;ICollection&lt;Room&gt;&gt;"/></returns>
+        </member>
+        <member name="M:Booking.API.Interfaces.IManagerRepository.RemoveRoom(System.Guid,System.Guid)">
+            <summary>
+            The RemoveRoom
+            </summary>
+            <param name="HotelId">The HotelId<see cref="T:System.Guid"/></param>
+            <param name="RoomId">The RoomId<see cref="T:System.Guid"/></param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task"/></returns>
+        </member>
+        <member name="M:Booking.API.Interfaces.IManagerRepository.RemoveRoom(System.Guid,System.Guid,Booking.API.Entities.Room)">
+            <summary>
+            The RemoveRoom
+            </summary>
+            <param name="HotelId">The HotelId<see cref="T:System.Guid"/></param>
+            <param name="RoomId">The RoomId<see cref="T:System.Guid"/></param>
+            <param name="room">The room<see cref="T:Booking.API.Entities.Room"/></param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task"/></returns>
+        </member>
+        <member name="M:Booking.API.Interfaces.IManagerRepository.RemoveHotel(System.Guid)">
+            <summary>
+            The RemoveHotel
+            </summary>
+            <param name="HotelId">The HotelId<see cref="T:System.Guid"/></param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task"/></returns>
+        </member>
+        <member name="M:Booking.API.Interfaces.IManagerRepository.RemoveHotel(System.Guid,Booking.API.Entities.Hotel)">
+            <summary>
+            The RemoveHotel
+            </summary>
+            <param name="HotelId">The HotelId<see cref="T:System.Guid"/></param>
+            <param name="hotel">The hotel<see cref="T:Booking.API.Entities.Hotel"/></param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task"/></returns>
+        </member>
+        <member name="M:Booking.API.Interfaces.IManagerRepository.AddAmenity(Booking.API.Entities.Amenity)">
+            <summary>
+            The AddAmenity
+            </summary>
+            <param name="model">The model<see cref="T:Booking.API.Entities.Amenity"/></param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task`1"/></returns>
+        </member>
+        <member name="M:Booking.API.Interfaces.IManagerRepository.GetAmenities">
+            <summary>
+            The GetAmenities
+            </summary>
+            <returns>The <see cref="!:Task&lt;ICollection&lt;Amenity&gt;&gt;"/></returns>
+        </member>
+        <member name="T:Booking.API.Interfaces.IRoomRepository">
+            <summary>
+            Defines the <see cref="T:Booking.API.Interfaces.IRoomRepository" />
+            </summary>
+        </member>
+        <member name="M:Booking.API.Interfaces.IRoomRepository.GetRoomById(System.Guid)">
+            <summary>
+            Gets room
+            </summary>
+            <param name="id">room id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Booking.API.Interfaces.IRoomRepository.GetRooms(System.Int32,System.Int32)">
+            <summary>
+            Gets rooms
+            </summary>
+            <param name="pageIndex">The pageIndex<see cref="T:System.Int32"/></param>
+            <param name="pageSize">The pageSize<see cref="T:System.Int32"/></param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task`1"/> where T is <see cref="T:HotelSystem.SharedKernel.Models.PaginatedList`1"/></returns>
+        </member>
+        <member name="M:Booking.API.Interfaces.IRoomRepository.GetRoomsWithSpecification(Booking.API.Specifications.RoomSpecifications.RoomQuerySpecification,Booking.API.Specifications.RoomSpecifications.NoBookingsQuerySpecification,Booking.API.Specifications.RoomSpecifications.TravelDatesQuerySpecification)">
+            <summary>
+            The GetRoomsWithSpecification
+            </summary>
+            <param name="roomQuery">The roomQuery<see cref="T:Booking.API.Specifications.RoomSpecifications.RoomQuerySpecification"/></param>
+            <param name="noBookingsQuery">The noBookingsQuery<see cref="T:Booking.API.Specifications.RoomSpecifications.NoBookingsQuerySpecification"/></param>
+            <param name="travelDatesQuery">The travelDatesQuery<see cref="T:Booking.API.Specifications.RoomSpecifications.TravelDatesQuerySpecification"/></param>
+            <returns>The <see cref="T:System.Collections.Generic.List`1"/></returns>
+        </member>
+        <member name="M:Booking.API.Interfaces.IRoomRepository.GetRoomsWithSpecification(Booking.API.Specifications.RoomSpecifications.RoomQuerySpecification,Booking.API.Specifications.RoomSpecifications.NoBookingsQuerySpecification,Booking.API.Specifications.RoomSpecifications.TravelDatesQuerySpecification,System.Int32,System.Int32)">
+            <summary>
+            Get rooms
+            </summary>
+            <param name="roomQuery"></param>
+            <param name="noBookingsQuery"></param>
+            <param name="travelDatesQuery"></param>
+            <param name="pageIndex">The pageIndex<see cref="T:System.Int32"/></param>
+            <param name="pageSize">The pageSize<see cref="T:System.Int32"/></param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task`1"/> where T is <see cref="T:HotelSystem.SharedKernel.Models.PaginatedList`1"/></returns>
+        </member>
+        <member name="M:Booking.API.Interfaces.IRoomRepository.InsertRoom(Booking.API.Entities.Room)">
+            <summary>
+            Creates new room
+            </summary>
+            <param name="room">Room to be inserted</param>
+            <returns>Added hotel</returns>
+        </member>
+        <member name="M:Booking.API.Interfaces.IRoomRepository.UpdateRoom(Booking.API.Entities.Room)">
+            <summary>
+            Updates room
+            </summary>
+            <param name="room">Room to be updated</param>
+            <returns>Updated room</returns>
+        </member>
+        <member name="M:Booking.API.Interfaces.IRoomRepository.UpdateRooms(System.Collections.Generic.ICollection{Booking.API.Entities.Room})">
+            <summary>
+            The UpdateRooms
+            </summary>
+            <param name="rooms">The rooms<see cref="T:System.Collections.Generic.ICollection`1"/></param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task"/></returns>
+        </member>
+        <member name="T:Booking.API.Models.Clients">
+            <summary>
+            Defines the <see cref="T:Booking.API.Models.Clients" />
+            </summary>
+        </member>
+        <member name="T:Booking.API.Models.Clients.BaseUri">
+            <summary>
+            Defines the <see cref="T:Booking.API.Models.Clients.BaseUri" />
+            </summary>
+        </member>
+        <member name="F:Booking.API.Models.Clients.BaseUri.StripeClient">
+            <summary>
+            Defines the BookingClient
+            </summary>
+        </member>
+        <member name="T:Booking.API.Models.Clients.NamedClients">
+            <summary>
+            Defines the <see cref="T:Booking.API.Models.Clients.NamedClients" />
+            </summary>
+        </member>
+        <member name="F:Booking.API.Models.Clients.NamedClients.StripeClient">
+            <summary>
+            Defines the BookingClient
+            </summary>
+        </member>
+        <member name="T:Booking.API.Services.BookerRepository">
+            <summary>
+            Defines the <see cref="T:Booking.API.Services.BookerRepository" />
+            </summary>
+        </member>
+        <member name="F:Booking.API.Services.BookerRepository._context">
+            <summary>
+            Defines the _context
+            </summary>
+        </member>
+        <member name="M:Booking.API.Services.BookerRepository.#ctor(Booking.API.Data.BookingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Booking.API.Services.BookerRepository"/> class.
+            </summary>
+            <param name="context">The context<see cref="T:Booking.API.Data.BookingContext"/></param>
+        </member>
+        <member name="M:Booking.API.Services.BookerRepository.GetBookingByBookerId(System.Guid,System.Guid)">
+            <summary>
+            The GetBookingByBookerId
+            </summary>
+            <param name="bookerId">The bookerId<see cref="T:System.Guid"/></param>
+            <param name="bookingId">The bookingId<see cref="T:System.Guid"/></param>
+            <returns>The <see cref="T:Booking.API.Entities.Booking"/></returns>
+        </member>
+        <member name="M:Booking.API.Services.BookerRepository.GetBookingsByBookerId(System.Guid,System.Int32,System.Int32)">
+            <summary>
+            The GetBookingsByBookerId
+            </summary>
+            <param name="BoookerId">The BoookerId<see cref="T:System.Guid"/></param>
+            <param name="pageIndex">The pageIndex<see cref="T:System.Int32"/></param>
+            <param name="pageSize">The pageSize<see cref="T:System.Int32"/></param>
+            <returns>The <see cref="T:HotelSystem.SharedKernel.Models.PaginatedList`1"> whose generic type argument is <see cref="T:Booking.API.Entities.Booking"/></see></returns>
+        </member>
+        <member name="M:Booking.API.Services.BookerRepository.GetBookingsByBookerId(System.Guid)">
+            <summary>
+            The GetBookingsByBookerId
+            </summary>
+            <param name="bookerId">The bookerId<see cref="T:System.Guid"/></param>
+            <returns>The <see cref="T:System.Collections.Generic.ICollection`1"/></returns>
+        </member>
+        <member name="T:Booking.API.Services.BookingRepository">
+            <summary>
+            Booking repositry implementation
+            </summary>
+        </member>
+        <member name="F:Booking.API.Services.BookingRepository._context">
+            <summary>
+            Defines the _context
+            </summary>
+        </member>
+        <member name="M:Booking.API.Services.BookingRepository.#ctor(Booking.API.Data.BookingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Booking.API.Services.BookingRepository"/> class.
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:Booking.API.Services.BookingRepository.AddComplaint(System.Guid,Booking.API.Entities.Complaint)">
+            <summary>
+            The AddComplaint
+            </summary>
+            <param name="id">The id<see cref="T:System.Guid"/></param>
+            <param name="complaint">The complaint<see cref="T:Booking.API.Entities.Complaint"/></param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task`1"/></returns>
+        </member>
+        <member name="M:Booking.API.Services.BookingRepository.CheckIn(System.Guid,System.Guid,Booking.API.Entities.CheckInCheckList)">
+            <summary>
+            The CheckIn
+            </summary>
+            <param name="bookingId">The bookingId<see cref="T:System.Guid"/></param>
+            <param name="CheckInPerson">The CheckInPerson<see cref="T:System.Guid"/></param>
+            <param name="checkInCheckList"></param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task`1"/></returns>
+        </member>
+        <member name="M:Booking.API.Services.BookingRepository.CheckOut(System.Guid,System.Guid)">
+            <summary>
+            The CheckOut
+            </summary>
+            <param name="bookingId">The bookingId<see cref="T:System.Guid"/></param>
+            <param name="CheckOutPerson">The CheckOutPerson<see cref="T:System.Guid"/></param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task`1"/></returns>
+        </member>
+        <member name="M:Booking.API.Services.BookingRepository.DeleteBooking(System.Guid)">
+            <summary>
+            The DeleteBooking
+            </summary>
+            <param name="id">The id<see cref="T:System.Guid"/></param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task"/></returns>
+        </member>
+        <member name="M:Booking.API.Services.BookingRepository.GetBookingById(System.Guid,System.Boolean)">
+            <summary>
+            Gets booking
+            </summary>
+            <param name="id">booking id</param>
+            <param name="WithInvoice">The WithInvoice<see cref="T:System.Boolean"/></param>
+            <returns></returns>
+        </member>
+        <member name="M:Booking.API.Services.BookingRepository.GetBookingComplaints(System.Guid)">
+            <summary>
+            The GetBookingComplaints
+            </summary>
+            <param name="id">The id<see cref="T:System.Guid"/></param>
+            <returns>The <see cref="!:Task&lt;ICollection&lt;Complaint&gt;&gt;"/></returns>
+        </member>
+        <member name="M:Booking.API.Services.BookingRepository.GetBookings">
+            <summary>
+            The GetBookings
+            </summary>
+            <returns>The <see cref="T:System.Collections.Generic.ICollection`1"/></returns>
+        </member>
+        <member name="M:Booking.API.Services.BookingRepository.GetBookings(System.Int32,System.Int32)">
+            <summary>
+            Gets bookings
+            </summary>
+            <param name="pageIndex">The pageIndex<see cref="T:System.Int32"/></param>
+            <param name="pageSize">The pageSize<see cref="T:System.Int32"/></param>
+            <returns></returns>
+        </member>
+        <member name="M:Booking.API.Services.BookingRepository.GetHotel(System.Guid)">
+            <summary>
+            The GetHotel
+            </summary>
+            <param name="hotelId">The hotelId<see cref="T:System.Guid"/></param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task`1"/></returns>
+        </member>
+        <member name="M:Booking.API.Services.BookingRepository.GetInvoice(System.Guid)">
+            <summary>
+            The GetInvoice
+            </summary>
+            <param name="InvoiceId">The InvoiceId<see cref="T:System.Guid"/></param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task`1"/></returns>
+        </member>
+        <member name="M:Booking.API.Services.BookingRepository.GetInvoiceByBookingId(System.Guid)">
+            <summary>
+            The GetInvoiceByBookingId
+            </summary>
+            <param name="BookingId">The BookingId<see cref="T:System.Guid"/></param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task`1"/></returns>
+        </member>
+        <member name="M:Booking.API.Services.BookingRepository.GetSelectedRooms(System.Guid)">
+            <summary>
+            The GetSelectedRooms
+            </summary>
+            <param name="BookingId">The BookingId<see cref="T:System.Guid"/></param>
+            <returns>The <see cref="T:System.Collections.Generic.List`1"/></returns>
+        </member>
+        <member name="M:Booking.API.Services.BookingRepository.InsertBooking(Booking.API.Entities.Booking)">
+            <summary>
+            Creates Booking
+            </summary>
+            <param name="booking"></param>
+            <returns>Added booking</returns>
+        </member>
+        <member name="M:Booking.API.Services.BookingRepository.InsertRoomBooking(Booking.API.Entities.RoomBooking)">
+            <summary>
+            The InsertRoomBooking
+            </summary>
+            <param name="roomBooking">The roomBooking<see cref="T:Booking.API.Entities.RoomBooking"/></param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task`1"/></returns>
+        </member>
+        <member name="M:Booking.API.Services.BookingRepository.InsertRoomBookings(System.Collections.Generic.ICollection{Booking.API.Entities.RoomBooking})">
+            <summary>
+            The InsertRoomBookings
+            </summary>
+            <param name="roomBookings">The roomBookings<see cref="T:System.Collections.Generic.ICollection`1"/></param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task"/></returns>
+        </member>
+        <member name="M:Booking.API.Services.BookingRepository.PayInvoice(Booking.API.Entities.Payment)">
+            <summary>
+            The PayInvoice
+            </summary>
+            <param name="model">The payment<see cref="T:Booking.API.Entities.Payment"/></param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task`1"/></returns>
+        </member>
+        <member name="M:Booking.API.Services.BookingRepository.SearchBooking(System.DateTime,System.DateTime,System.Guid)">
+            <summary>
+            The SearchBooking
+            </summary>
+            <param name="arrival">The arrival<see cref="T:System.DateTime"/></param>
+            <param name="departure">The departure<see cref="T:System.DateTime"/></param>
+            <param name="bookerId">The bookerId<see cref="T:System.Guid"/></param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task`1"/></returns>
+        </member>
+        <member name="M:Booking.API.Services.BookingRepository.UpdateBooking(Booking.API.Entities.Booking)">
+            <summary>
+            Updates booking
+            </summary>
+            <param name="booking"></param>
+            <returns>Updated booking</returns>
+        </member>
+        <member name="M:Booking.API.Services.BookingRepository.UpdateBookingInvoice(Booking.API.Entities.Booking)">
+            <summary>
+            The UpdateBookingInvoice
+            </summary>
+            <param name="booking">The booking<see cref="T:Booking.API.Entities.Booking"/></param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task`1"/></returns>
+        </member>
+        <member name="M:Booking.API.Services.BookingRepository.GenerateBookingInvoice(Booking.API.Entities.Booking)">
+            <summary>
+            The GenerateBookingInvoice
+            </summary>
+            <param name="booking">The booking<see cref="T:Booking.API.Entities.Booking"/></param>
+            <returns>The <see cref="T:Booking.API.Entities.Invoice"/></returns>
+        </member>
+        <member name="M:Booking.API.Services.BookingRepository.GetRoomAmenities(System.Guid)">
+            <summary>
+            The GetRoomAmenities
+            </summary>
+            <param name="roomId">The roomId<see cref="T:System.Guid"/></param>
+            <returns>The <see cref="T:System.Collections.Generic.List`1"/></returns>
+        </member>
+        <member name="M:Booking.API.Services.BookingRepository.ValidateBooking(Booking.API.Entities.Booking)">
+            <summary>
+            The ValidateBooking
+            </summary>
+            <param name="booking">The booking<see cref="T:Booking.API.Entities.Booking"/></param>
+        </member>
+        <member name="T:Booking.API.Services.HotelRepository">
+            <summary>
+            An implementation of the hotel service interface
+            </summary>
+        </member>
+        <member name="F:Booking.API.Services.HotelRepository._context">
+            <summary>
+            Defines the _context
+            </summary>
+        </member>
+        <member name="M:Booking.API.Services.HotelRepository.#ctor(Booking.API.Data.BookingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Booking.API.Services.HotelRepository"/> class.
+            </summary>
+            <param name="context">BookingContext instatiated by DI</param>
+        </member>
+        <member name="M:Booking.API.Services.HotelRepository.GetAllRooms(System.Guid)">
+            <summary>
+            The GetAllRooms
+            </summary>
+            <param name="Id">The Id<see cref="T:System.Guid"/></param>
+            <returns>The <see cref="!:Task&lt;ICollection&lt;Room&gt;&gt;"/></returns>
+        </member>
+        <member name="M:Booking.API.Services.HotelRepository.GetHotelById(System.Guid)">
+            <summary>
+            Gets hotel
+            </summary>
+            <param name="Id">Hotel Id</param>
+            <returns>Hotel with given Id</returns>
+        </member>
+        <member name="M:Booking.API.Services.HotelRepository.GetHotels">
+            <summary>
+            The GetHotels
+            </summary>
+            <returns>The <see cref="T:System.Collections.Generic.ICollection`1"/></returns>
+        </member>
+        <member name="M:Booking.API.Services.HotelRepository.GetHotels(System.Int32,System.Int32)">
+            <summary>
+            Gets hotels
+            </summary>
+            <param name="pageIndex">The pageIndex<see cref="T:System.Int32"/></param>
+            <param name="pageSize">The pageSize<see cref="T:System.Int32"/></param>
+            <returns>The <see cref="T:HotelSystem.SharedKernel.Models.PaginatedList`1"/></returns>
+        </member>
+        <member name="M:Booking.API.Services.HotelRepository.InsertHotel(Booking.API.Entities.Hotel)">
+            <summary>
+            Creates new hotel
+            </summary>
+            <param name="hotel">A hotel</param>
+            <returns>A created hotel</returns>
+        </member>
+        <member name="M:Booking.API.Services.HotelRepository.UpdateHotel(Booking.API.Entities.Hotel)">
+            <summary>
+            Updates hotel
+            </summary>
+            <param name="hotel">Hotel to be updated</param>
+            <returns>returns updated hotel</returns>
+        </member>
+        <member name="T:Booking.API.Services.RoomRepository">
+            <summary>
+            Defines the <see cref="T:Booking.API.Services.RoomRepository" />
+            </summary>
+        </member>
+        <member name="F:Booking.API.Services.RoomRepository._context">
+            <summary>
+            Defines the _context
+            </summary>
+        </member>
+        <member name="M:Booking.API.Services.RoomRepository.#ctor(Booking.API.Data.BookingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Booking.API.Services.RoomRepository"/> class.
+            </summary>
+            <param name="context">The context<see cref="T:Booking.API.Data.BookingContext"/></param>
+        </member>
+        <member name="M:Booking.API.Services.RoomRepository.GetRoomById(System.Guid)">
+            <summary>
+            The GetRoomById
+            </summary>
+            <param name="id">The id<see cref="T:System.Guid"/></param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task`1"/></returns>
+        </member>
+        <member name="M:Booking.API.Services.RoomRepository.GetRooms(System.Int32,System.Int32)">
+            <summary>
+            Gets rooms
+            </summary>
+            <param name="pageIndex">The pageIndex<see cref="T:System.Int32"/></param>
+            <param name="pageSize">The pageSize<see cref="T:System.Int32"/></param>
+            <returns>A list of rooms</returns>
+        </member>
+        <member name="M:Booking.API.Services.RoomRepository.GetRoomsWithSpecification(Booking.API.Specifications.RoomSpecifications.RoomQuerySpecification,Booking.API.Specifications.RoomSpecifications.NoBookingsQuerySpecification,Booking.API.Specifications.RoomSpecifications.TravelDatesQuerySpecification)">
+            <summary>
+            The GetRoomsWithSpecification
+            </summary>
+            <param name="roomQuery">The roomQuery<see cref="T:Booking.API.Specifications.RoomSpecifications.RoomQuerySpecification"/></param>
+            <param name="noBookingsQuery">The noBookingsQuery<see cref="T:Booking.API.Specifications.RoomSpecifications.NoBookingsQuerySpecification"/></param>
+            <param name="travelDatesQuery">The travelDatesQuery<see cref="T:Booking.API.Specifications.RoomSpecifications.TravelDatesQuerySpecification"/></param>
+            <returns>The <see cref="T:System.Collections.Generic.List`1"/></returns>
+        </member>
+        <member name="M:Booking.API.Services.RoomRepository.GetRoomsWithSpecification(Booking.API.Specifications.RoomSpecifications.RoomQuerySpecification,Booking.API.Specifications.RoomSpecifications.NoBookingsQuerySpecification,Booking.API.Specifications.RoomSpecifications.TravelDatesQuerySpecification,System.Int32,System.Int32)">
+            <summary>
+            Get rooms
+            </summary>
+            <param name="roomQuery"></param>
+            <param name="noBookingsQuery"></param>
+            <param name="travelDatesQuery"></param>
+            <param name="pageIndex">The pageIndex<see cref="T:System.Int32"/></param>
+            <param name="pageSize">The pageSize<see cref="T:System.Int32"/></param>
+            <returns>The <see cref="T:HotelSystem.SharedKernel.Models.PaginatedList`1"/></returns>
+        </member>
+        <member name="M:Booking.API.Services.RoomRepository.InsertRoom(Booking.API.Entities.Room)">
+            <summary>
+            Creates new room
+            </summary>
+            <param name="room">Room to be inserted</param>
+            <returns>Added hotel</returns>
+        </member>
+        <member name="M:Booking.API.Services.RoomRepository.UpdateRoom(Booking.API.Entities.Room)">
+            <summary>
+            Updates room
+            </summary>
+            <param name="room">Room to be updated</param>
+            <returns>Updated room</returns>
+        </member>
+        <member name="M:Booking.API.Services.RoomRepository.UpdateRooms(System.Collections.Generic.ICollection{Booking.API.Entities.Room})">
+            <summary>
+            The UpdateRooms
+            </summary>
+            <param name="rooms">The rooms<see cref="T:System.Collections.Generic.ICollection`1"/></param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task"/></returns>
+        </member>
+    </members>
+</doc>

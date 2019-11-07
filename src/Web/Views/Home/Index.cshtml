@@ -1,0 +1,148 @@
+﻿@inject IUserClaims claims
+
+@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="row">
+    <div class="col-sm-12 col-md-12">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Index</a></li>
+        </ol>
+    </div>
+</div>
+
+@if (User.Identity.IsAuthenticated)
+{
+    @if (claims.IsFrontDesk())
+    {
+        <div class="row">
+            <div class="col-sm-12 col-md-12">
+                <p>
+                    <h1>Blue Orbs Hotel</h1><em>Front Desk</em>
+                </p>
+                <partial name="_SearchBooking" />
+            </div>
+        </div>
+
+        @section Scripts {
+            @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+            <script type="text/javascript" src="~/js/flatpickr.js"></script>
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    var optional_config = {
+                        enableTime: true,
+                        enableSeconds: true,
+                        dateFormat: "Y-m-d H:i:S"
+                    };
+                    $('.travel-date').flatpickr(optional_config);
+                });
+            </script>
+        }
+    }
+    else if (claims.IsManager())
+    {
+        <div class="row">
+            <div class="col-sm-12 col-md-12">
+
+                <partial name="_Dashboard" />
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="row">
+            <div class="col-sm-12 col-md-12">
+                <p>
+                    <h1>Blue Orbs Hotel</h1><em>Gateway to paradise</em>
+                </p>
+                <partial name="_SearchForRooms" />
+            </div>
+        </div>
+
+        @section Scripts {
+            @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+            <script type="text/javascript" src="~/js/flatpickr.js"></script>
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $('#hotelName').val($('#hotelSelect').find('option:selected').text());
+                    $('#hotelSelect').change(function () {
+                        var $option = $(this).find('option:selected');
+                        var text = $option.text();
+                        $('#hotelName').val(text);
+                    });
+
+                    var optional_config = {
+
+                        minDate: "today",
+                    };
+
+                    $('.travel-date').flatpickr(optional_config);
+
+                    $('#arrival').change(function () {
+                        $('#departure').val("");
+                    });
+
+                    $('#departure').change(function () {
+                        var startDate = $('#arrival').val();
+                        var endDate = $('#departure').val();
+
+                        if (Date.parse(startDate) >= Date.parse(endDate)) {
+                            $('#departure').val("")
+                        }
+                    });
+                });
+            </script>
+        }
+
+
+    }
+}
+else
+{
+    <div class="row">
+        <div class="col-sm-12 col-md-12">
+            <p>
+                <h1>Blue Orb Hotel</h1><em>Gateway to paradise</em>
+            </p>
+            <partial name="_SearchForRooms" />
+        </div>
+    </div>
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+        <script type="text/javascript" src="~/js/flatpickr.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#hotelName').val($('#hotelSelect').find('option:selected').text());
+                $('#hotelSelect').change(function () {
+                    var $option = $(this).find('option:selected');
+                    var text = $option.text();
+                    $('#hotelName').val(text);
+                });
+
+                var optional_config = {
+
+                    minDate: "today",
+                };
+
+                $('.travel-date').flatpickr(optional_config);
+
+                $('#arrival').change(function () {
+                    $('#departure').val("");
+                });
+
+                $('#departure').change(function () {
+                    var startDate = $('#arrival').val();
+                    var endDate = $('#departure').val();
+
+                    if (Date.parse(startDate) >= Date.parse(endDate)) {
+                        $('#departure').val("")
+                    }
+                });
+            });
+        </script>
+    }
+
+}

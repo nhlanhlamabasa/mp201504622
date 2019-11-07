@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blue Orb Hotel</title>
+    <link rel="icon" type="image/x-icon" href="~/faveicon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="~/faveicon.ico" />
+    <link rel="stylesheet" href="~/css/font-awesome.css" type="text/css" />
+    <link rel="stylesheet" href="~/css/site.css" type="text/css" />
+    <link rel="stylesheet" href="~/css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="~/css/normalize.css" type="text/css" />
+    <link rel="stylesheet" href="~/css/flatpickr.css" type="text/css" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a href="~/">
+            <span class="navbar-brand">
+                <img src="~/icon.png" class="icon-banner">
+                Blue Orbs Hotel
+            </span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Home" asp-action="Index">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <partial name="_LoginPartial" />
+            </ul>
+        </div>
+    </nav>
+
+    <main role="main" class="container">
+        <br />
+        <partial name="_StatusMessages" />
+        <br />
+        <div class="row">
+            <div class="col-sm-10 col-md-10">
+                @RenderBody()
+            </div>
+            <div class="col-sm-2 col-md-2">
+                <ul class="breadcrumb nav nav-pills nav-tabs flex-column">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link"  href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            Home
+                        <span class="caret pull-right dropdown-toggle"></span>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" asp-controller="Home" asp-action="Index">Index</a>
+                            <a class="dropdown-item" asp-controller="Home" asp-action="About">About</a>
+                            <a class="dropdown-item" asp-controller="Home" asp-action="Contact">Contact</a>
+                            <a class="dropdown-item" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </div>
+                    </li>
+                    <partial name="_SideNavPartial" />
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <script src="~/js/popper.js"></script>
+    <script src="~/js/jquery.js"></script>
+    <script src="~/js/bootstrap.js"></script>
+    <script src="~/js/alert.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Blue Orbs Hotels</string>
+    <string name="label_username">Enter Username</string>
+    <string name="plain_text_username_placeholder">Username</string>
+    <string name="image_hotel_description">Blue Orbs Hotels</string>
+    <string name="button_login">Login</string>
+    <string name="button_register">Register</string>
+    <string name="link_forgot_password">Forgot Password</string>
+</resources>

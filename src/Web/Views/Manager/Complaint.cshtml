@@ -1,0 +1,53 @@
+﻿@model ComplaintViewModel
+
+@{
+    ViewData["Title"] = "Complaint";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-sm-12 col-md-12">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Manager</a></li>
+            <li class="breadcrumb-item active"><a asp-controller="Manager" asp-action="Complaints">Complaints</a></li>
+            <li class="breadcrumb-item active"><a href="#">Complaint</a></li>
+        </ol>
+    </div>
+</div>
+
+<h2>Complaint</h2>
+
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-controller="Manager" asp-action="Complaint" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input asp-for="BookingId" class="form-control" type="hidden" />
+            </div>
+            <div class="form-group">
+                <label asp-for="ComplainType" class="control-label"></label>
+                <input asp-for="ComplainType" class="form-control" readonly/>
+                <span asp-validation-for="ComplainType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <textarea asp-for="Description" class="form-control"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="IsResolved"  /> @Html.DisplayNameFor(model => model.IsResolved)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group pull-right">
+                <a asp-action="Manager" asp-controller="Complaints" class="btn btn-outline-secondary">Back to List</a>
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+

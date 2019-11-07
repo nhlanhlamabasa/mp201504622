@@ -1,0 +1,81 @@
+﻿@model IEnumerable<HotelSystem.SharedKernel.ViewModels.RoomViewModel>
+
+@{
+    ViewData["Title"] = "Rooms";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-sm-12 col-md-12">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-controller="Manager" asp-action="Index">Dashboard</a></li>
+            <li class="breadcrumb-item active"><a asp-controller="Manager" asp-action="Rooms">Rooms</a></li>
+        </ol>
+    </div>
+</div>
+
+<h4 class="pb-1">Your Rooms</h4>
+
+<p>
+    <span class="text text-lowercase">
+        <a asp-controller="Manager" asp-action="AddRoom">
+            <i class=" fa fa-plus"></i>
+            Add new room
+        </a>
+    </span>
+</p>
+
+
+@if (Model == null)
+{
+    <hr />
+
+    <div class="row">
+        <div class="col text-center">
+            <img src="~/images/error/web_hi_res_512.png" class="img-fluid rounded" height="200" width="100" />
+        </div>
+    </div>
+}
+else
+{
+    <div class="row">
+        <div class="col">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.HotelName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.RoomType)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.StrCost)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.HotelName)
+                            </td>
+                            <td>
+                                @Html.DisplayNameFor(modelItem => item.RoomType)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.StrCost)
+                            </td>
+                            <td>
+                                <a asp-action="HotelDetails" asp-controller="Manager" asp-route-Id="@item.Id">Details</a> |
+                                <a asp-action="Delete_Hotel" asp-controller="Manager" asp-route-Id="@item.Id">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+}

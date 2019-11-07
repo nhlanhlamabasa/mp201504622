@@ -1,0 +1,345 @@
+﻿@using Newtonsoft.Json
+@model ChangeGuestsViewModel
+
+@{
+    ViewData["Title"] = "Edit Booking";
+}
+
+<div class="row">
+    <div class="col-sm-12 col-md-12">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Booking</a></li>
+            <li class="breadcrumb-item"><a asp-controller="Booking" asp-action="Bookings">Bookings</a></li>
+            <li class="breadcrumb-item"><a asp-controller="Booking" asp-action="EditBooking" asp-route-Id="@ViewData["BookingId"]">Edit Booking</a></li>
+        </ol>
+    </div>
+</div>
+
+<h4 class="pb-1">Edit Booking</h4>
+
+<hr />
+
+@if (Model == null)
+{
+    <div class="row">
+        <div class="col text-center">
+            <img src="~/images/error/web_hi_res_512.png" class="img-fluid rounded" height="200" width="100" />
+        </div>
+    </div>
+}
+else
+{
+    <div class="row">
+        <div class="col-md-6 col-sm-6">
+            <h5 class="text-center">Available Rooms</h5>
+            <br />
+            @**<div>
+                <p class="font-italic text-muted">
+                    Showing page <span data-bind="text: availableRooms.pageNumber"></span>  of
+                    <span data-bind="text: availableRooms.pageCount"></span> pages.
+                </p>
+                <ul class="pagination">
+                    <li data-bind="css: { disabled: !availableRooms.hasPreviousPage() }" class="page-item">
+                        <a href="#" aria-label="Previous" data-bind="click: availableRooms.toPreviousPage" class="page-link">
+                            Previous
+                        </a>
+                    </li>
+
+                    <li data-bind="css: { disabled: !availableRooms.hasNextPage() }" class="page-item">
+                        <a href="#" aria-label="Next" data-bind="click: availableRooms.toNextPage" class="page-link">
+                            Next
+                        </a>
+                    </li>
+                </ul>
+            </div>*@
+            <div class="row" data-bind="foreach: availableRooms.pageItems">
+                <div class="col-md-12 col-sm-12">
+                    <div class="card">
+                        <img class="card-img-top img-fluid" src="~/data/rooms/double.jpg" width="316" height="190" />
+                        <div class="card-body">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <div class="row">
+                                        <div class="col-md-6 col-sm-6">
+                                            <h5 class="card-title font-weight-light"><span data-bind="text: RoomType"></span> Room</h5>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6">
+                                            <a class="text-muted" data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                                View room amenities
+                                                <i class="fa fa-caret-down"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="collapse" id="collapseExample2">
+                                        <ul data-bind="foreach: Amenities">
+                                            <li data-bind="text: amenity.description"></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="font-weight-bold">
+                                        <strong data-bind="text: StrCost"></strong>
+                                    </div>
+                                </li>
+                            </ul>
+                            <p class="card-text">
+                                <div>
+                                    <span>
+                                        <i class="fa fa-bed"></i>
+                                        <span data-bind="text: Capacity"></span>
+                                        <!-- ko  {if: Capacity() == "1"} -->
+                                        <span> Bed</span>
+                                        <!-- /ko -->
+                                        <!-- ko {if: Capacity() > "1"} -->
+                                        <span> Beds</span>
+                                        <!-- /ko -->
+                                    </span>
+                                </div>
+                                <div>
+                                    <input type="hidden" data-bind="text: Id" />
+                                </div>
+                            </p>
+                            <button name="command" type="button" class="btn btn-outline-primary" value="BookRoom" data-bind="click: $parent.bookRoom">Add room to booking</button>
+                        </div>
+                    </div>
+                    <br />
+                </div>
+            </div>
+            <div>
+                <p class="font-italic text-muted">
+                    Showing page <span data-bind="text: availableRooms.pageNumber"></span>  of
+                    <span data-bind="text: availableRooms.pageCount"></span> pages.
+                </p>
+            </div>
+            <ul class="pagination">
+                <li data-bind="css: { disabled: !availableRooms.hasPreviousPage() }" class="page-item">
+                    <a href="#" aria-label="Previous" data-bind="click: availableRooms.toPreviousPage" class="page-link">
+                        Previous
+                    </a>
+                </li>
+
+                <li data-bind="css: { disabled: !availableRooms.hasNextPage() }" class="page-item">
+                    <a href="#" aria-label="Next" data-bind="click: availableRooms.toNextPage" class="page-link">
+                        Next
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-md-6 col-sm-6">
+            <h5 class="text-center">Your Booking</h5>
+            <br />
+            <form asp-controller="Booking" asp-action="EditBooking" method="put">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="BookingId" readonly />
+                <input type="hidden" asp-for="ModifiedDate" readonly />
+                <input type="hidden" asp-for="HotelId" readonly />
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <span>
+                                <i class="fa fa-hotel"></i>
+                                <label class="control-label" asp-for="HotelName"></label>
+                            </span>
+                            <input class="form-control" asp-for="HotelName" readonly />
+                            <span asp-validation-for="HotelName" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <span>
+                                <i class="fa fa-calendar"></i>
+                                <label class="control-label" asp-for="Arrival"></label>
+                            </span>
+                            <input class="form-control" asp-for="Arrival" readonly />
+                            <span asp-validation-for="Arrival" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <span>
+                                <i class="fa fa-calendar"></i>
+                                <label class="control-label" asp-for="Departure"></label>
+                            </span>
+                            <input asp-for="Departure" class="form-control" readonly />
+                            <span asp-validation-for="Departure" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <span>
+                                <i class="fa fa-users"></i>
+                                <label asp-for="NumberOfGuests" class="control-label"></label>
+                            </span>
+                            <input asp-for="NumberOfGuests" class="form-control" readonly />
+                            <span asp-validation-for="NumberOfGuests" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <span>
+                                <i class="fa fa-users"></i>
+                                <label asp-for="NewNumberOfGuests" class="control-label"></label>
+                            </span>
+                            <input asp-for="NewNumberOfGuests" class="form-control" id="newNumber" />
+                            <span asp-validation-for="NewNumberOfGuests" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <a type="button" class="btn btn-secondary col text-left" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                Selected Rooms <span class="badge badge-light" data-bind="text: numberOfSelected"></span>
+                                <span class="sr-only">Selected Rooms</span>
+                            </a>
+                            <div class="collapse" id="collapseExample">
+                                <div class="card card-body">
+                                    <div data-bind="foreach: selectedRooms">
+                                        <div class="card w-50" style="border:none">
+                                            <div class="card-body">
+                                                <h5 class="card-title">
+                                                    Room <span data-bind="text: ($index() + 1)"> </span>:
+                                                    <button type="button" class="close" aria-label="Close" data-bind="click: $parent.removeRoom">
+                                                        <span aria-hidden="true">
+                                                            <i class="fa fa-close text text-danger"></i>
+                                                        </span>
+                                                    </button>
+                                                </h5>
+                                                <div class="form-group">
+                                                    <label class="control-label">Room Number</label>
+                                                    <input data-bind="value: RoomNumber" readonly name="Items.RoomNumber" class="form-control" />
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label">Room Cost</label>
+                                                    <input data-bind="value: Cost" readonly name="Items.Cost" class="form-control" />
+                                                </div>
+
+                                                <input type="hidden" data-bind="value: Capacity" readonly name="Items.Capacity" />
+                                                <input type="hidden" data-bind="value: Cost" readonly name="Items.Cost" />
+                                                <input type="hidden" data-bind="value: HotelId" readonly name="Items.HotelId" />
+                                                <input type="hidden" data-bind="value: Id" readonly name="Items.Id" />
+                                                <input type="hidden" data-bind="value: RoomType" readonly name="Items.RoomType" />
+                                            </div>
+                                        </div>
+                                        <br />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group pull-right">
+                            <a class="btn btn-outline-secondary align-bottom" asp-controller="Booking" asp-action="Bookings">Back to List</a>
+                            <input type="submit" value="Save changes" class="btn btn-primary" />
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+        <script type="text/javascript" src="~/js/knockout-latest.debug.js"></script>
+        <script type="text/javascript" src="~/js/knockout-paging.js"></script>
+        <script type="text/javascript">
+        var RoomViewModel = function (data) {
+            self = this;
+            self.Amenities = ko.observableArray(data.amenities);
+            self.Capacity = ko.observable(data.capacity);
+            self.Cost = ko.observable(data.cost);
+            self.HotelId = ko.observable(data.hotelId);
+            self.Id = ko.observable(data.id);
+            self.RoomNumber = ko.observable(data.roomNumber);
+            self.RoomType = ko.observable(data.roomType);
+            self.StrCost = ko.observable(data.strCost);
+            self.Hotel = ko.observable(data.hotel);
+            return self;
+        }
+
+        var addHotel = function (id, name) {
+            var object = { Id: id, Name: name };
+            return object;
+        }
+
+        function AvailableRoomViewModel() {
+            var self = this;
+            self.availableRooms = ko.observableArray([]).extend({ paged: { pageSize: 5 } });
+            self.selectedRooms = ko.observableArray(@Html.Raw(JsonConvert.SerializeObject(Model.SelectedRooms)));
+            self.setPage = function (newPage) {
+                self.availableRooms.pageNumber(newPage);
+            };
+            self.numberOfRooms = ko.computed(function () {
+                return self.availableRooms().length;
+            }, this);
+            self.numberOfSelected = ko.computed(function () {
+                return self.selectedRooms().length;
+            }, this);
+
+            self.bookRoom = function (data) {
+                $.ajax({
+                    type: 'POST',
+                    url: '/Booking/SelectRoom?Id=' + data.Id(),
+                    success: function (result) {
+                        self.selectedRooms.push(data);
+                        self.selectedRooms.valueHasMutated();
+                        $('#numSelectedRooms').val(self.selectedRooms().length);
+                    },
+                    error: function (result) {
+                        location.reload();
+                    }
+                });
+
+            };
+
+            self.removeRoom = function (data) {
+                $.ajax({
+                    type: 'PUT',
+                    url: '/Booking/RemoveRoom?Id=' + ko.toJS(data).Id,
+                    success: function (result) {
+                        self.selectedRooms.remove(data);
+                        self.selectedRooms.valueHasMutated();
+                        $('#numSelectedRooms').val(self.selectedRooms().length);
+                    },
+                    error: function (result) {
+                        //location.reload();
+                    }
+                });
+            };
+
+            $.ajax({
+                type: 'GET',
+                url: '/Booking/EditGetRooms',
+                dataType: 'json',
+                contentType: 'application/json; charset=utf-8',
+                success: function (result) {
+                    console.log(result);
+                    ko.utils.arrayForEach(result, function (data) {
+                        self.availableRooms.push(new RoomViewModel(data));
+                    });
+                },
+                error: function (result) {
+                    //location.reload();
+                }
+            });
+        };
+
+        $(document).ready(function () {
+            ko.applyBindings(new AvailableRoomViewModel());
+            
+        });
+        </script>
+    }
+}
+

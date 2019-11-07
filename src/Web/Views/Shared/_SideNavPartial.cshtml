@@ -1,0 +1,79 @@
+﻿@inject IUserClaims claims
+
+
+@if (User.Identity.IsAuthenticated)
+{
+
+    @if (claims.IsManager())
+    {
+        <li class="nav-item">
+            <a class="nav-link" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                Manager
+                <span class="caret pull-right dropdown-toggle"></span>
+            </a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" asp-controller="Manager" asp-action="Index">Dashboard</a>
+            </div>
+        </li>
+    }
+    else if (claims.IsFrontDesk())
+    {
+        <li class="nav-item">
+            <a class="nav-link" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                Front Desk
+                <span class="caret pull-right dropdown-toggle"></span>
+            </a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" asp-controller="FrontDesk" asp-action="Index">Front Desk</a>
+            </div>
+        </li>
+    }
+    else
+    {
+        <li class="nav-item">
+            <a class="nav-link" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                Booking
+                <span class="caret pull-right dropdown-toggle"></span>
+            </a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" asp-controller="Booking" asp-action="Bookings">Your Bookings</a>
+                <a class="dropdown-item" asp-controller="Home" asp-action="Index">Create Booking</a>
+            </div>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                Complaints
+                <span class="caret pull-right dropdown-toggle"></span>
+            </a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" asp-controller="Booking" asp-action="Complaints">Your Complaints</a>
+                <a class="dropdown-item" asp-controller="Booking" asp-action="Bookings">Create Complaint</a>
+            </div>
+        </li>
+    }
+    <li class="nav-item">
+        <a class="nav-link" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            Account
+            <span class="caret pull-right dropdown-toggle"></span>
+        </a>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" asp-controller="Account" asp-action="Profile">Profile</a>
+            <a class="dropdown-item" asp-controller="Account" asp-action="Logout">Logout</a>
+        </div>
+    </li>
+}
+else
+{
+    <li class="nav-item dropdown">
+        <a class="nav-link" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            Account
+            <span class="caret pull-right dropdown-toggle"></span>
+        </a>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" asp-controller="Account" asp-action="Register">Register</a>
+            <a class="dropdown-item" asp-controller="Account" asp-action="Login">Login</a>
+            <a class="dropdown-item" asp-controller="Account" asp-action="ForgotPassword">Forgot Password</a>
+        </div>
+    </li>
+}

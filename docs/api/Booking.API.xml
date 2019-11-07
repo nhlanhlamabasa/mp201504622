@@ -1,0 +1,890 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Booking.API</name>
+    </assembly>
+    <members>
+        <member name="T:Booking.API.Configurations.BookingConfiguration">
+            <summary>
+            BookingConfiguration
+            </summary>
+        </member>
+        <member name="M:Booking.API.Configurations.BookingConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{Booking.API.Entities.Booking})">
+            <summary>
+            Configure
+            </summary>
+            <param name="builder"></param>
+        </member>
+        <member name="T:Booking.API.Configurations.FloorConfiguration">
+            <summary>
+            Floor Configuration
+            </summary>
+        </member>
+        <member name="M:Booking.API.Configurations.FloorConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{Booking.API.Entities.Floor})">
+            <summary>
+            Configure
+            </summary>
+            <param name="builder"></param>
+        </member>
+        <member name="T:Booking.API.Configurations.HotelConfiguration">
+            <summary>
+            Hotel configuration
+            </summary>
+        </member>
+        <member name="M:Booking.API.Configurations.HotelConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{Booking.API.Entities.Hotel})">
+            <summary>
+            Configure
+            </summary>
+            <param name="builder"></param>
+        </member>
+        <member name="T:Booking.API.Configurations.RoomBookingConfiguration">
+            <summary>
+            Room Config
+            </summary>
+        </member>
+        <member name="M:Booking.API.Configurations.RoomBookingConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{Booking.API.Entities.RoomBooking})">
+            <summary>
+            configuration
+            </summary>
+            <param name="builder"></param>
+        </member>
+        <member name="T:Booking.API.Configurations.RoomConfiguration">
+            <summary>
+            Room Entity Configuration class
+            </summary>
+        </member>
+        <member name="M:Booking.API.Configurations.RoomConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{Booking.API.Entities.Room})">
+            <summary>
+            Configuration
+            </summary>
+            <param name="builder"></param>
+        </member>
+        <member name="T:Booking.API.Controllers.BookingController">
+            <summary>
+            Manages bookings
+            </summary>
+        </member>
+        <member name="M:Booking.API.Controllers.BookingController.#ctor(Booking.API.Interfaces.IBookingRepository)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="bookingRepository"></param>
+        </member>
+        <member name="M:Booking.API.Controllers.BookingController.Get">
+            <summary>
+            Gets list of bookings
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Booking.API.Controllers.BookingController.Get(System.Guid)">
+            <summary>
+            Gets single booking
+            </summary>
+            <param name="id">booking id</param>
+            <returns>Booking</returns>
+        </member>
+        <member name="M:Booking.API.Controllers.BookingController.Post(HotelSystem.SharedKernel.ViewModels.BookingViewModel)">
+            <summary>
+            Creates booking
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Booking.API.Controllers.BookingController.Put(System.Guid,HotelSystem.SharedKernel.ViewModels.BookingViewModel)">
+            <summary>
+            Update Booking
+            </summary>
+            <param name="id"></param>
+            <param name="bookingViewModel"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Booking.API.Controllers.HotelController">
+            <summary>
+            For managing hotels
+            </summary>
+        </member>
+        <member name="M:Booking.API.Controllers.HotelController.#ctor(Booking.API.Interfaces.IHotelRepository)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="hotelRepository">Repository for managing hotel</param>
+        </member>
+        <member name="M:Booking.API.Controllers.HotelController.Get">
+            <summary>
+            Gets all hotels
+            </summary>
+            <returns>List of type HotelViewModel</returns>
+            <remarks>
+            - 200 - A list of hotels
+            - 404 - An empty list 
+            </remarks>
+        </member>
+        <member name="M:Booking.API.Controllers.HotelController.Get(System.Guid)">
+            <summary>
+            Gets a hotel
+            </summary>
+            <param name="id">Hotel id</param>
+            <returns>Return a hotelViewModel</returns>
+            <remarks>
+            - 200 - A hotel
+            - 404 - No hotel found with given id
+            </remarks>
+        </member>
+        <member name="M:Booking.API.Controllers.HotelController.Post(HotelSystem.SharedKernel.ViewModels.HotelViewModel)">
+            <summary>
+            Creates new hotels
+            </summary>
+            <param name="hotelViewModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Booking.API.Controllers.HotelController.Put(System.Guid,HotelSystem.SharedKernel.ViewModels.HotelViewModel)">
+            <summary>
+            Updates hotel
+            </summary>
+            <param name="id"></param>
+            <param name="hotelViewModel"></param>
+        </member>
+        <member name="T:Booking.API.Data.BookingContext">
+            <summary>
+            BookingContext
+            </summary>
+        </member>
+        <member name="M:Booking.API.Data.BookingContext.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Booking.API.Data.BookingContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{Booking.API.Data.BookingContext})">
+            <summary>
+            Constructor
+            </summary>
+            <param name="options"></param>
+        </member>
+        <member name="P:Booking.API.Data.BookingContext.Hotels">
+            <summary>
+            Hotels
+            </summary>
+        </member>
+        <member name="P:Booking.API.Data.BookingContext.Floors">
+            <summary>
+            Floors
+            </summary>
+        </member>
+        <member name="P:Booking.API.Data.BookingContext.Bookings">
+            <summary>
+            Bookings
+            </summary>
+        </member>
+        <member name="P:Booking.API.Data.BookingContext.Rooms">
+            <summary>
+            Rooms
+            </summary>
+        </member>
+        <member name="P:Booking.API.Data.BookingContext.RoomBookings">
+            <summary>
+            RoomBookings
+            </summary>
+        </member>
+        <member name="M:Booking.API.Data.BookingContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            Configuration
+            </summary>
+            <param name="builder"></param>
+        </member>
+        <member name="T:Booking.API.Data.Seed">
+            <summary>
+            Seed db
+            </summary>
+        </member>
+        <member name="M:Booking.API.Data.Seed.#ctor(Booking.API.Data.BookingContext)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:Booking.API.Data.Seed.EnsureSeeded">
+            <summary>
+            Ensure seed
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Booking.API.Data.RoomTypeAndCapacity">
+            <summary>
+            For seeding
+            </summary>
+        </member>
+        <member name="P:Booking.API.Data.RoomTypeAndCapacity.RoomType">
+            <summary>
+            RoomType
+            </summary>
+        </member>
+        <member name="P:Booking.API.Data.RoomTypeAndCapacity.Capacity">
+            <summary>
+            Capacity
+            </summary>
+        </member>
+        <member name="T:Booking.API.Entities.Booking">
+            <summary>
+            Booking Entity
+            </summary>
+        </member>
+        <member name="M:Booking.API.Entities.Booking.#ctor">
+            <summary>
+            Constructor needed by ORM
+            </summary>
+        </member>
+        <member name="M:Booking.API.Entities.Booking.#ctor(System.Guid,HotelSystem.SharedKernel.DateTimeRange,System.Int32,System.Guid)">
+            <summary>
+            Booking constructor. Instatiates booking values.
+            </summary>
+            <param name="Id">Booking Id</param>
+            <param name="TravelDates">Travel duration</param>
+            <param name="NumberOfGuests">Number of Guests</param>
+            <param name="BookerId">Booker Id</param>
+        </member>
+        <member name="M:Booking.API.Entities.Booking.#ctor(Booking.API.Entities.Booking)">
+            <summary>
+            Copy construtor
+            </summary>
+            <param name="copy"></param>
+        </member>
+        <member name="P:Booking.API.Entities.Booking.Start">
+            <summary>
+            Travel begin date
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Booking.End">
+            <summary>
+            Travel end date
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Booking.NumberOfGuests">
+            <summary>
+            Number of Guests
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Booking.RoomBookings">
+            <summary>
+            Collection of room booking
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Booking.BookerId">
+            <summary>
+            Booker's Id
+            </summary>
+        </member>
+        <member name="M:Booking.API.Entities.Booking.AlterNumberOfGuests(System.Int32)">
+            <summary>
+            Alters the number of guests
+            </summary>
+            <param name="NumberOfGuests">New number of guests</param>
+            <returns>A Booking instance with updated values</returns>
+        </member>
+        <member name="T:Booking.API.Entities.Floor">
+            <summary>
+            Floor entity
+            </summary>
+        </member>
+        <member name="M:Booking.API.Entities.Floor.#ctor(System.Guid,System.Int32,System.Int32)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Id"></param>
+            <param name="FloorNumber"></param>
+            <param name="MaxRooms"></param>
+        </member>
+        <member name="P:Booking.API.Entities.Floor.FloorNumber">
+            <summary>
+            Floor number
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Floor.MaxRooms">
+            <summary>
+            Maximum rooms for this floor
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Floor.Rooms">
+            <summary>
+            Rooms on floor
+            </summary>
+        </member>
+        <member name="M:Booking.API.Entities.Floor.AddRoom(Booking.API.Entities.Room)">
+            <summary>
+            Add room to floor
+            </summary>
+            <param name="room">New Room</param>
+            <returns>Same Floor with newly added room</returns>
+        </member>
+        <member name="T:Booking.API.Entities.Hotel">
+            <summary>
+            Hotel entity
+            </summary>
+        </member>
+        <member name="M:Booking.API.Entities.Hotel.#ctor">
+            <summary>
+            Hotel constructor needed by orm
+            </summary>
+        </member>
+        <member name="M:Booking.API.Entities.Hotel.#ctor(System.Guid,System.String,System.Int32,HotelSystem.SharedKernel.Ratings,HotelSystem.SharedKernel.ContactDetails,HotelSystem.SharedKernel.Address)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Id">Hotel id</param>
+            <param name="Name">Hotel name</param>
+            <param name="NumberOfFloors">Number of floors in hotel</param>
+            <param name="Rating">Hotel rating</param>
+            <param name="ContactDetails">Conatct details</param>
+            <param name="Address">Address</param>
+        </member>
+        <member name="P:Booking.API.Entities.Hotel.NumberOfFloors">
+            <summary>
+            Number of floors
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Hotel.Floors">
+            <summary>
+            Hotel floors
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Hotel.Name">
+            <summary>
+            Hotel name
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Hotel.Rating">
+            <summary>
+            Hotel ratings
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Hotel.PostalCode">
+            <summary>
+            Hotel contact details
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Hotel.Country">
+            <summary>
+            Hotel address: Country
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Hotel.City">
+            <summary>
+            Hotel address: City
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Hotel.Street">
+            <summary>
+            Hotel address: Street
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Hotel.Town">
+            <summary>
+            Hotel address: Town
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Hotel.ManagerId">
+            <summary>
+            Hotel Manager id
+            </summary>
+        </member>
+        <member name="M:Booking.API.Entities.Hotel.AddFloor(Booking.API.Entities.Floor)">
+            <summary>
+            Adds floor
+            </summary>
+            <param name="floor"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Booking.API.Entities.Hotel.AddManager(System.Guid)">
+            <summary>
+            Adds manager
+            </summary>
+            <param name="ManagerId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Booking.API.Entities.Room">
+            <summary>
+            Room entity
+            </summary>
+        </member>
+        <member name="M:Booking.API.Entities.Room.#ctor">
+            <summary>
+            Constructor needed by orm
+            </summary>
+        </member>
+        <member name="M:Booking.API.Entities.Room.#ctor(System.Guid,System.Decimal,System.String,HotelSystem.SharedKernel.RoomType,System.Guid,System.Int32)">
+            <summary>
+            Constructor creates new room
+            </summary>
+            <param name="id">Room id</param>
+            <param name="cost">Room cost</param>
+            <param name="roomNumber">Room number</param>
+            <param name="roomType">Room type</param>
+            <param name="floorId">Hotel id</param>
+            <param name="capacity">Room capacity</param>
+        </member>
+        <member name="M:Booking.API.Entities.Room.BookRoom(System.Int32,HotelSystem.SharedKernel.DateTimeRange,System.Guid)">
+            <summary>
+            Book room
+            </summary>
+            <param name="occupancy"></param>
+            <param name="dateTimeRange"></param>
+            <param name="bookingId"></param>
+        </member>
+        <member name="P:Booking.API.Entities.Room.Cost">
+            <summary>
+            Room booking cost
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Room.RoomNumber">
+            <summary>
+            Room floor
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Room.RoomType">
+            <summary>
+            RoomType
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Room.Capacity">
+            <summary>
+            Number of possible occupants
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Room.Description">
+            <summary>
+            Room Description
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Room.Occupancy">
+            <summary>
+            Current number of occupants
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Room.BookingId">
+            <summary>
+            Who booked the room
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Room.RoomBookings">
+            <summary>
+            Navigation property
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Room.FloorId">
+            <summary>
+            To which hotel does the room belong
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.Room.Floor">
+            <summary>
+            Navigation property
+            </summary>
+        </member>
+        <member name="T:Booking.API.Entities.RoomBooking">
+            <summary>
+            Composite entity
+            </summary>
+        </member>
+        <member name="M:Booking.API.Entities.RoomBooking.#ctor">
+            <summary>
+            Constructor needed by orm
+            </summary>
+        </member>
+        <member name="M:Booking.API.Entities.RoomBooking.#ctor(System.Guid,Booking.API.Entities.Room,System.Guid,Booking.API.Entities.Booking)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="roomId"></param>
+            <param name="room"></param>
+            <param name="bookingId"></param>
+            <param name="booking"></param>
+        </member>
+        <member name="P:Booking.API.Entities.RoomBooking.RoomId">
+            <summary>
+            Room id
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.RoomBooking.Room">
+            <summary>
+            Room
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.RoomBooking.BookingId">
+            <summary>
+            Booking id
+            </summary>
+        </member>
+        <member name="P:Booking.API.Entities.RoomBooking.Booking">
+            <summary>
+            Booking
+            </summary>
+        </member>
+        <member name="T:Booking.API.Exceptions.ExceptionMiddleware">
+            <summary>
+            Global exception middleware
+            </summary>
+        </member>
+        <member name="M:Booking.API.Exceptions.ExceptionMiddleware.#ctor(Microsoft.AspNetCore.Http.RequestDelegate)">
+            <summary>
+            Contsructor
+            </summary>
+            <param name="next"></param>
+        </member>
+        <member name="M:Booking.API.Exceptions.ExceptionMiddleware.Invoke(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            Catches undhandled exceptions
+            </summary>
+            <param name="httpContext"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Booking.API.Exceptions.ExceptionMiddlewareExtensions">
+            <summary>
+            Encapsulates exception middleware extensions
+            </summary>
+        </member>
+        <member name="M:Booking.API.Exceptions.ExceptionMiddlewareExtensions.UseExceptionMiddleware(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            Extension method used to add the middleware to the HTTP request pipeline.
+            </summary>
+            <param name="builder"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Booking.API.Interfaces.IBookingRepository">
+            <summary>
+            Booking respository
+            </summary>
+        </member>
+        <member name="M:Booking.API.Interfaces.IBookingRepository.GetBooking(System.Guid)">
+            <summary>
+            Gets booking
+            </summary>
+            <param name="id">Booking id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Booking.API.Interfaces.IBookingRepository.InsertBooking(Booking.API.Entities.Booking)">
+            <summary>
+            Creates bookings
+            </summary>
+            <param name="booking">Booking</param>
+            <returns>Added booking</returns>
+            <exception cref="T:Microsoft.EntityFrameworkCore.DbUpdateConcurrencyException">Thrown when there is a concurrency violation during save operation</exception>
+            <exception cref="T:Microsoft.EntityFrameworkCore.DbUpdateException">An error occured during save operation</exception>
+        </member>
+        <member name="M:Booking.API.Interfaces.IBookingRepository.GetBookings">
+            <summary>
+            Gets list of bookings
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Booking.API.Interfaces.IBookingRepository.UpdateBooking(Booking.API.Entities.Booking)">
+             <summary>
+             Updates booking
+             </summary>
+             <param name="booking"></param>
+             <returns>Updated booking</returns>
+            <exception cref="T:Microsoft.EntityFrameworkCore.DbUpdateConcurrencyException">Thrown when there is a concurrency violation save operation</exception>
+             <exception cref="T:Microsoft.EntityFrameworkCore.DbUpdateException">An error occured during save operation</exception>
+        </member>
+        <member name="T:Booking.API.Interfaces.IHotelRepository">
+            <summary>
+            Hotel service interface
+            </summary>
+        </member>
+        <member name="M:Booking.API.Interfaces.IHotelRepository.GetHotels">
+            <summary>
+            Gets hotels
+            </summary>
+            <returns>A collection of hotels</returns>
+        </member>
+        <member name="M:Booking.API.Interfaces.IHotelRepository.GetHotel(System.Guid)">
+            <summary>
+            Gets hotel
+            </summary>
+            <param name="Id">Hotel Id</param>
+            <returns>Hotel with given Id</returns>
+        </member>
+        <member name="M:Booking.API.Interfaces.IHotelRepository.InsertHotel(Booking.API.Entities.Hotel)">
+            <summary>
+            Creates new hotel
+            </summary>
+            <param name="hotel">A hotel</param>
+            <returns>A created hotel</returns>
+            <exception cref="T:Microsoft.EntityFrameworkCore.DbUpdateConcurrencyException"></exception>
+            <exception cref="T:Microsoft.EntityFrameworkCore.DbUpdateException"></exception>
+        </member>
+        <member name="M:Booking.API.Interfaces.IHotelRepository.UpdateHotel(Booking.API.Entities.Hotel)">
+            <summary>
+            Updates hotel
+            </summary>
+            <param name="hotel">Hotel to be updated</param>
+            <returns>returns updated hotel</returns>
+            <exception cref="T:Microsoft.EntityFrameworkCore.DbUpdateConcurrencyException"></exception>
+            <exception cref="T:Microsoft.EntityFrameworkCore.DbUpdateException"></exception>
+        </member>
+        <member name="M:Booking.API.Interfaces.IHotelRepository.GetRoom(System.Guid)">
+            <summary>
+            Gets room
+            </summary>
+            <param name="id">room id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Booking.API.Interfaces.IHotelRepository.GetRooms">
+            <summary>
+            Gets rooms
+            </summary>
+            <returns>A collection of rooms</returns>
+        </member>
+        <member name="M:Booking.API.Interfaces.IHotelRepository.InsertRoom(Booking.API.Entities.Room)">
+            <summary>
+            Creates new room
+            </summary>
+            <param name="room">Room to be inserted</param>
+            <returns>Added hotel</returns>
+            <exception cref="T:Microsoft.EntityFrameworkCore.DbUpdateConcurrencyException"></exception>
+            <exception cref="T:Microsoft.EntityFrameworkCore.DbUpdateException"></exception>
+        </member>
+        <member name="M:Booking.API.Interfaces.IHotelRepository.UpdateRoom(Booking.API.Entities.Room)">
+            <summary>
+            Updates room
+            </summary>
+            <param name="room">Room to be updated</param>
+            <returns>Updated room</returns>
+            <exception cref="T:Microsoft.EntityFrameworkCore.DbUpdateConcurrencyException"></exception>
+            <exception cref="T:Microsoft.EntityFrameworkCore.DbUpdateException"></exception>
+        </member>
+        <member name="T:Booking.API.Models.HotelMapperProfile">
+            <summary>
+            Mapper profile
+            </summary>
+        </member>
+        <member name="M:Booking.API.Models.HotelMapperProfile.#ctor">
+            <summary>
+            Mapper Profile configurations
+            </summary>
+        </member>
+        <member name="T:Booking.API.Models.SizedStack`1">
+            <summary>
+            Sized stack. A stack that has a maximum size
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Booking.API.Models.SizedStack`1.#ctor(System.Int32)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="maxSize"></param>
+        </member>
+        <member name="M:Booking.API.Models.SizedStack`1.Add(`0)">
+            <summary>
+            Adds Item
+            </summary>
+            <param name="item"></param>
+            <exception cref="T:System.ArgumentOutOfRangeException">If Count exceededs maxSize</exception>
+        </member>
+        <member name="T:Booking.API.Program">
+            <summary>
+            Program class
+            </summary>
+        </member>
+        <member name="M:Booking.API.Program.Main(System.String[])">
+            <summary>
+            Program entry point
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:Booking.API.Program.CreateWebHostBuilder(System.String[])">
+            <summary>
+            Builds web host
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Booking.API.Services.BookingRepository">
+            <summary>
+            Booking repositry implementation
+            </summary>
+        </member>
+        <member name="M:Booking.API.Services.BookingRepository.#ctor(Booking.API.Data.BookingContext)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:Booking.API.Services.BookingRepository.InsertBooking(Booking.API.Entities.Booking)">
+            <summary>
+            Creates Booking
+            </summary>
+            <param name="booking"></param>
+            <returns>Added booking</returns>
+            <exception cref="T:Microsoft.EntityFrameworkCore.DbUpdateConcurrencyException">Thrown when there is a concurrency violation during save operation</exception>
+            <exception cref="T:Microsoft.EntityFrameworkCore.DbUpdateException">An error occured during save operation</exception>
+        </member>
+        <member name="M:Booking.API.Services.BookingRepository.GetBooking(System.Guid)">
+            <summary>
+            Gets booking
+            </summary>
+            <param name="id">booking id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Booking.API.Services.BookingRepository.GetBookings">
+            <summary>
+            Gets bookings
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Booking.API.Services.BookingRepository.UpdateBooking(Booking.API.Entities.Booking)">
+            <summary>
+            Updates booking
+            </summary>
+            <param name="booking"></param>
+            <returns>Updated booking</returns>
+            <exception cref="T:Microsoft.EntityFrameworkCore.DbUpdateConcurrencyException">Thrown when there is a concurrency violation during save operation</exception>
+            <exception cref="T:Microsoft.EntityFrameworkCore.DbUpdateException">An error occured during save operation</exception>
+        </member>
+        <member name="T:Booking.API.Services.HotelRepository">
+            <summary>
+            An implementation of the hotel service interface
+            </summary>
+        </member>
+        <member name="M:Booking.API.Services.HotelRepository.#ctor(Booking.API.Data.BookingContext)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="context">BookingContext instatiated by DI</param>
+        </member>
+        <member name="M:Booking.API.Services.HotelRepository.GetHotel(System.Guid)">
+            <summary>
+            Gets hotel
+            </summary>
+            <param name="Id">Hotel Id</param>
+            <returns>Hotel with given Id</returns>
+        </member>
+        <member name="M:Booking.API.Services.HotelRepository.GetHotels">
+            <summary>
+            Gets hotels
+            </summary>
+            <returns>A collection of hotels</returns>
+        </member>
+        <member name="M:Booking.API.Services.HotelRepository.GetRoom(System.Guid)">
+            <summary>
+            Gets room
+            </summary>
+            <param name="Id">Room Id</param>
+            <returns>Room with given Id</returns>
+        </member>
+        <member name="M:Booking.API.Services.HotelRepository.GetRooms">
+            <summary>
+            Gets rooms
+            </summary>
+            <returns>A collection of rooms</returns>
+        </member>
+        <member name="M:Booking.API.Services.HotelRepository.InsertHotel(Booking.API.Entities.Hotel)">
+            <summary>
+            Creates new hotel
+            </summary>
+            <param name="hotel">A hotel</param>
+            <returns>A created hotel</returns>
+            <exception cref="T:Microsoft.EntityFrameworkCore.DbUpdateConcurrencyException"></exception>
+            <exception cref="T:Microsoft.EntityFrameworkCore.DbUpdateException"></exception>
+        </member>
+        <member name="M:Booking.API.Services.HotelRepository.InsertRoom(Booking.API.Entities.Room)">
+            <summary>
+            Creates new room
+            </summary>
+            <param name="room">Room to be inserted</param>
+            <returns>Added hotel</returns>
+            <exception cref="T:Microsoft.EntityFrameworkCore.DbUpdateConcurrencyException"></exception>
+            <exception cref="T:Microsoft.EntityFrameworkCore.DbUpdateException"></exception>
+        </member>
+        <member name="M:Booking.API.Services.HotelRepository.UpdateHotel(Booking.API.Entities.Hotel)">
+            <summary>
+            Updates hotel
+            </summary>
+            <param name="hotel">Hotel to be updated</param>
+            <returns>returns updated hotel</returns>
+            <exception cref="T:Microsoft.EntityFrameworkCore.DbUpdateConcurrencyException"></exception>
+            <exception cref="T:Microsoft.EntityFrameworkCore.DbUpdateException"></exception>
+        </member>
+        <member name="M:Booking.API.Services.HotelRepository.UpdateRoom(Booking.API.Entities.Room)">
+            <summary>
+            Updates room
+            </summary>
+            <param name="room">Room to be updated</param>
+            <returns>Updated room</returns>
+            <exception cref="T:Microsoft.EntityFrameworkCore.DbUpdateConcurrencyException"></exception>
+            <exception cref="T:Microsoft.EntityFrameworkCore.DbUpdateException"></exception>
+        </member>
+        <member name="T:Booking.API.Specifications.QuerySpecifications">
+            <summary>
+            Query spec
+            </summary>
+        </member>
+        <member name="T:Booking.API.Startup">
+            <summary>
+            Startup class. Handles configuration settings and adds middleware to http pipeline
+            </summary>
+        </member>
+        <member name="M:Booking.API.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="configuration"></param>
+        </member>
+        <member name="P:Booking.API.Startup.Configuration">
+            <summary>
+            Application configuration settings
+            </summary>
+        </member>
+        <member name="M:Booking.API.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Configure application services
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:Booking.API.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IHostingEnvironment,Booking.API.Data.Seed)">
+            <summary>
+            Configure application middleware and seed database
+            </summary>
+            <param name="app"></param>
+            <param name="env"></param>
+            <param name="seeder"></param>
+        </member>
+        <member name="T:Booking.API.Validation.Validate">
+            <summary>
+            Validates entity fields.
+            </summary>
+            <remarks>Validates entity fields</remarks>
+        </member>
+        <member name="M:Booking.API.Validation.Validate.MustNotBeNull(System.Guid)">
+            <summary>
+            Validates Id
+            </summary>
+            <param name="value">Guid Id</param>
+            <returns>Guid</returns>
+            <exception cref="T:System.ArgumentNullException">Id cannot be null</exception>
+        </member>
+        <member name="M:Booking.API.Validation.Validate.MustNotBeNull(System.String)">
+            <summary>
+            Validates strings. Checks if given string is null
+            </summary>
+            <param name="value"></param>
+            <returns>A non-null string</returns>
+            <exception cref="T:System.ArgumentNullException">If given value is null</exception>
+        </member>
+        <member name="M:Booking.API.Validation.Validate.MustBeGreaterThanZero(System.Int32)">
+            <summary>
+            Validates integer values. Ensures that value is greater than zero
+            </summary>
+            <param name="value">Value</param>
+            <returns>Value greater than zero</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">If value is no grater than zero</exception>
+        </member>
+        <member name="M:Booking.API.Validation.Validate.EnityCannotBeNull(HotelSystem.SharedKernel.Entity{System.Guid})">
+            <summary>
+            Validates that the entity is an insatnce of an object
+            </summary>
+            <param name="entity">An entity</param>
+            <returns>A non-null entity</returns>
+            <exception cref="T:System.ArgumentNullException">If entity is null</exception>
+        </member>
+    </members>
+</doc>

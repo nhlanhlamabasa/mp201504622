@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewData["Title"] = "Forbidden";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-sm-12 col-md-12">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Booking</a></li>
+            <li class="breadcrumb-item active"><a href="#">Forbidden</a></li>
+        </ol>
+    </div>
+</div>
+
+<h4 class="pb-1">Fobidden</h4>
+
+<div class="row">
+    <div class="col-md-8 col-sm-8">
+        <div class="row">
+            <div class="col">
+                <p>
+                    <span class="text text-danger">You are forbidden.</span>
+                    <br />
+                    Return to <a asp-action="Index" asp-controller="Home">home page.</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+

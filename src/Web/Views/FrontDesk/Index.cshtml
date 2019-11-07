@@ -1,0 +1,21 @@
+﻿@{ 
+    ViewData["Title"] = "Front Desk";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4 class="pb-1">Front Desk</h4>
+
+<hr />
+
+<div class="row">
+    <div class="col-sm-3 col-md-2">
+        <ul class="nav nav-pills flex-column">
+            <li class="nav-item">
+                <a class="nav-item" asp-controller="FrontDesk" asp-action="Index">Front Desk</a>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-9 col-sm-9 border-left">
+        @await  Component.InvokeAsync("Bookings")
+    </div>
+</div>

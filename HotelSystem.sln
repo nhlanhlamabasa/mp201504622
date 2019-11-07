@@ -1,0 +1,86 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{3864FDA1-4EC6-4687-91E6-073C801D18B9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{737F8F31-5C06-4DE5-8D99-86348D529FFA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web", "src\Web\Web.csproj", "{2D1A28E0-A894-4468-93E6-A31FCF6BDE9E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SharedKernel", "SharedKernel", "{2F0805CF-4AB3-4943-8820-5C8C36D4D95F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotelSystem.SharedKernel", "src\SharedKernel\HotelSystem.SharedKernel\HotelSystem.SharedKernel.csproj", "{95494A5D-48C9-405D-8A29-D490D0A28C4E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Booking", "Booking", "{F15D0157-9596-4392-86BE-FD97575D7933}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identity", "Identity", "{B87F8D46-4360-4CFE-9A7A-A929F484BAAF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "data", "data", "{328565DC-F19B-4C1E-950D-76DD06CE022C}"
+	ProjectSection(SolutionItems) = preProject
+		data\Cities.txt = data\Cities.txt
+		data\Guests.txt = data\Guests.txt
+		data\Hotels.txt = data\Hotels.txt
+		data\Managers.txt = data\Managers.txt
+		data\SeedData.xlsx = data\SeedData.xlsx
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{B197F508-3FB8-4D15-9CD3-A6F8372F2841}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "secrets", "secrets", "{F6B920CB-142D-449C-83F5-9066B1524291}"
+	ProjectSection(SolutionItems) = preProject
+		docs\secrets\client_id.json = docs\secrets\client_id.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "api", "api", "{C3BB3FA6-4357-44AF-9430-8871E0B2A939}"
+	ProjectSection(SolutionItems) = preProject
+		docs\api\Booking.API.xml = docs\api\Booking.API.xml
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServer", "src\Services\Identity\IdentityServer\IdentityServer.csproj", "{92ADD781-23B1-4EDB-8D30-4B2A5AF009D8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Booking.API", "src\Services\Booking\Booking.API\Booking.API.csproj", "{396BEABA-9166-407B-B8D1-6346E92C6159}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2D1A28E0-A894-4468-93E6-A31FCF6BDE9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D1A28E0-A894-4468-93E6-A31FCF6BDE9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D1A28E0-A894-4468-93E6-A31FCF6BDE9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D1A28E0-A894-4468-93E6-A31FCF6BDE9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95494A5D-48C9-405D-8A29-D490D0A28C4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95494A5D-48C9-405D-8A29-D490D0A28C4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95494A5D-48C9-405D-8A29-D490D0A28C4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95494A5D-48C9-405D-8A29-D490D0A28C4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92ADD781-23B1-4EDB-8D30-4B2A5AF009D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92ADD781-23B1-4EDB-8D30-4B2A5AF009D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92ADD781-23B1-4EDB-8D30-4B2A5AF009D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92ADD781-23B1-4EDB-8D30-4B2A5AF009D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{396BEABA-9166-407B-B8D1-6346E92C6159}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{396BEABA-9166-407B-B8D1-6346E92C6159}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{396BEABA-9166-407B-B8D1-6346E92C6159}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{396BEABA-9166-407B-B8D1-6346E92C6159}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{737F8F31-5C06-4DE5-8D99-86348D529FFA} = {3864FDA1-4EC6-4687-91E6-073C801D18B9}
+		{2D1A28E0-A894-4468-93E6-A31FCF6BDE9E} = {3864FDA1-4EC6-4687-91E6-073C801D18B9}
+		{2F0805CF-4AB3-4943-8820-5C8C36D4D95F} = {3864FDA1-4EC6-4687-91E6-073C801D18B9}
+		{95494A5D-48C9-405D-8A29-D490D0A28C4E} = {2F0805CF-4AB3-4943-8820-5C8C36D4D95F}
+		{F15D0157-9596-4392-86BE-FD97575D7933} = {737F8F31-5C06-4DE5-8D99-86348D529FFA}
+		{B87F8D46-4360-4CFE-9A7A-A929F484BAAF} = {737F8F31-5C06-4DE5-8D99-86348D529FFA}
+		{F6B920CB-142D-449C-83F5-9066B1524291} = {B197F508-3FB8-4D15-9CD3-A6F8372F2841}
+		{C3BB3FA6-4357-44AF-9430-8871E0B2A939} = {B197F508-3FB8-4D15-9CD3-A6F8372F2841}
+		{92ADD781-23B1-4EDB-8D30-4B2A5AF009D8} = {B87F8D46-4360-4CFE-9A7A-A929F484BAAF}
+		{396BEABA-9166-407B-B8D1-6346E92C6159} = {F15D0157-9596-4392-86BE-FD97575D7933}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3378E21D-BF11-4402-953D-ADD1CD9574B6}
+	EndGlobalSection
+EndGlobal

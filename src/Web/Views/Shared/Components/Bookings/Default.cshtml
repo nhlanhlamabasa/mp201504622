@@ -1,0 +1,69 @@
+﻿@model IEnumerable<HotelSystem.SharedKernel.ViewModels.BookingViewModel>
+
+
+@functions
+{
+public BookingStatus GetStatus(string status)
+{
+    Enum.TryParse(status, out BookingStatus myStatus);
+    return myStatus;
+}
+}
+
+@if (Model == null)
+{
+    <h5>You have not yet intercated with any guests</h5>
+}
+else
+{
+    <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.HotelName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Arrival)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Departure)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.NumberOfGuests)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Status)
+                        </th>
+                        <th>
+
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.HotelName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Arrival)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Departure)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NumberOfGuests)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Status)
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+}

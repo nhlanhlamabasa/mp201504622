@@ -1,0 +1,2 @@
+Id	FirstName	LastName	PhoneNumber	Email	PostalCode	Country	City	Town	Street	Password
+4caa4efb-235e-4fc1-b3a5-a59fb7934a8e	Winston	Wallace	604102009	winston@mail.com	20203	South Africa	Johannesburg	Benoni	53 Clydesdale Street	winstonwallace

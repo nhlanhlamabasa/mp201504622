@@ -1,0 +1,27 @@
+﻿<h4 class="pb-1">Dashboard</h4>
+
+<hr />
+
+<div class="row">
+    <div class="col-sm-3 col-md-2">
+        <ul class="nav nav-pills flex-column">
+            <li class="nav-item">
+                <a class="nav-item" asp-controller="Manager" asp-action="Hotels">Hotels</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-item" asp-controller="Manager" asp-action="Rooms">Rooms</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-item" asp-controller="Manager" asp-action="Amenities">Amenities</a>
+            </li>
+            <li class="nav-ite">
+                <a class="nav-item" asp-controller="Manager" asp-action="Complaints">Complaints</a>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-9 col-sm-9 border-left">
+        @await Component.InvokeAsync("Summary")
+        <hr>
+        @await Component.InvokeAsync("PeriodSummary")
+    </div>
+</div>

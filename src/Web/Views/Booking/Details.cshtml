@@ -1,0 +1,219 @@
+﻿@model BookingViewModel
+@inject IOptions<CloudinaryDetails> cloudinaryDetails
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    Account account = new Account(cloudinaryDetails.Value.Name,
+        cloudinaryDetails.Value.Key,
+        cloudinaryDetails.Value.Secret);
+
+    Cloudinary cloudinary = new Cloudinary(account);
+
+}
+
+@functions
+{
+public BookingStatus GetStatus(string status)
+{
+    Enum.TryParse(status, out BookingStatus myStatus);
+    return myStatus;
+}
+}
+
+<div class="row">
+    <div class="col-sm-12 col-md-12">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Booking</a></li>
+            <li class="breadcrumb-item"><a asp-controller="Booking" asp-action="Bookings">Bookings</a></li>
+            <li class="breadcrumb-item active"><a href="#">Details</a></li>
+        </ol>
+    </div>
+</div>
+
+<h4 class="pb-1">Booking Details</h4>
+
+<hr />
+
+<div class="row">
+    <div class="col-md-3">
+        <dl class="dl-horizontal">
+            <dt></dt>
+            <dd class="badge badge-info">
+                @Html.DisplayName(Model.Status)
+            </dd>
+            <dt>
+                <label asp-for="Arrival"></label>
+            </dt>
+            <dd>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <i class="fa fa-calendar rounded bg-info text-light input-group-text"></i>
+                    </div>
+                    <input asp-for="Arrival" class="form-control" readonly />
+                </div>
+            </dd>
+            <dt>
+                <label asp-for="Departure"></label>
+            </dt>
+            <dd>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <i class="fa fa-calendar rounded bg-info text-light input-group-text"></i>
+                    </div>
+                    <input asp-for="Departure" class="form-control" readonly />
+                </div>
+            </dd>
+            <dt>
+                <label asp-for="HotelName"></label>
+            </dt>
+            <dd>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <i class="fa fa-hotel rounded bg-info text-light input-group-text"></i>
+                    </div>
+                    <input asp-for="HotelName" class="form-control" readonly />
+                </div>
+            </dd>
+            <dt>
+                <label asp-for="NumberOfGuests"></label>
+            </dt>
+            <dd>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <i class="fa fa-users rounded bg-info text-light input-group-text"></i>
+                    </div>
+                    <input asp-for="NumberOfGuests" class="form-control" readonly />
+                </div>
+            </dd>
+            <dt>
+                <br />
+            </dt>
+            <dd>
+                <div class="btn-group btn-block">
+                    <a asp-action="DownloadInvoice" asp-controller="Booking" asp-route-Id="@Model.Id" class="bg-info text-light btn"><i class="fa fa-download"></i></a>
+                    <a class="btn btn-block" asp-action="DownloadInvoice" asp-controller="Booking" asp-route-Id="@Model.Id">
+                        Download Invoice
+                        <span class="sr-only">Download Invoice</span>
+                    </a>
+                </div>
+            </dd>
+        </dl>
+    </div>
+    <div class="col-md-9 col-sm-9">
+        <div class="row">
+
+            @for (int i = 0; i < Model.SelectedRooms.Count; i++)
+            {
+                @if (i != 0 && i % 2 == 0)
+                {
+                @:</div>
+                @:<div class="row">
+                }
+
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="row pb-1">
+                                <div class="col">
+                                    <strong class="pb-1">Room Number</strong>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <i class="fa fa-key rounded bg-info text-light input-group-text"></i>
+                                        </div>
+                                        <input asp-for="@Model.SelectedRooms[i].RoomNumber" disabled class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <strong class="pb-1">Room Cost</strong>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <i class="fa fa-money rounded bg-info text-light input-group-text"></i>
+                                        </div>
+                                        <input asp-for="@Model.SelectedRooms[i].StrCost" disabled class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <img class="img-thumbnail" src="@cloudinary.Api.UrlImgUp.Secure(true).Transform(
+                            new Transformation().Height(0.8).Crop("scale")).Version(Model.SelectedRooms[i].ImageID).BuildUrl("rooms/"+Model.SelectedRooms[i].ImageName)" alt="@Model.SelectedRooms[i].ImageName" />
+                        </div>
+                        <div class="card-footer">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="btn-group btn-block">
+                                        <button type="button" class="btn btn-block" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                            View amenities
+                                            <span class="sr-only">Amenities</span>
+                                        </button>
+                                        <button type="button" class="bg-info text-light btn">@Model.SelectedRooms[i].Amenities.Count</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="collapse" id="collapseExample">
+                                        @foreach (var amenity in Model.SelectedRooms[i].Amenities)
+                                        {
+                                            @amenity.Amenity.Description <br />
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col ">
+        <div class="pull-right">
+            <a asp-action="Bookings" asp-controller="Booking" class="btn btn-outline-secondary">Back to List</a>
+            @switch (GetStatus(Model.Status))
+            {
+                case BookingStatus.AwaitingPayment:
+                    {
+                        <a asp-controller="Booking" asp-action="EditBooking" asp-route-Id="@Model.Id">Edit |</a>
+                        <a asp-controller="Booking" asp-action="Details" asp-route-Id="@Model.Id">Details |</a>
+                        <a asp-controller="Booking" asp-action="Cancel" asp-route-Id="@Model.Id">Cancel</a>
+                    }
+                    break;
+                case BookingStatus.Paid:
+                    {
+
+                        <a asp-controller="Booking" asp-action="Cancel" asp-route-Id="@Model.Id" class="btn btn-primary">Cancel</a>
+                    }
+                    break;
+                case BookingStatus.CheckedIn:
+                    {
+                        <a asp-controller="Booking" asp-action="Complaint" asp-route-Id="@Model.Id" class="btn btn-primary">Complaint</a>
+                    }
+                    break;
+                case BookingStatus.CheckedOut:
+                    {
+                        <a asp-controller="Booking" asp-action="Review" asp-route-Id="@Model.Id" class="btn btn-primary">Review</a>
+                    }
+                    break;
+                case BookingStatus.Cancelled:
+                    {
+                    }
+                    break;
+                default:
+                    {
+                        <a asp-controller="Booking" asp-action="EditBooking" asp-route-Id="@Model.Id">Edit |</a>
+                        <a asp-controller="Booking" asp-action="Details" asp-route-Id="@Model.Id">Details |</a>
+                        <a asp-controller="Booking" asp-action="Cancel" asp-route-Id="@Model.Id">Cancel</a>
+                    }
+                    break;
+            }
+
+        </div>
+    </div>
+</div>

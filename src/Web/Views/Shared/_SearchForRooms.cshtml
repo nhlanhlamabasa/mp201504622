@@ -1,0 +1,69 @@
+﻿@model HotelSystem.SharedKernel.ViewModels.AvailabilityViewModel
+@inject IBookingClient hotelNames
+
+
+<div class="row">
+    <div class="col-md-12">
+        <form asp-controller="Home" asp-action="Index" method="post" role="form" asp-route-returnUrl="@ViewData["returnUrl"]">
+            <input id="hotelName" type="hidden" asp-for="HotelName" />
+            <div class="row">
+                <div class="col-12 col-sm pr-sm-0">
+                    <span>
+                        <label asp-for="HotelId" class="col-form-label"></label>
+                    </span>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <i class="fa fa-hotel rounded bg-info text-light input-group-text"></i>
+                        </div>
+                        <select id="hotelSelect" asp-for="HotelId" asp-items="await hotelNames.DropDownHotelList()" class="form-control ">
+                            <option disabled selected>Please select Hotel</option>
+                        </select>
+                        <span asp-validation-for="HotelId" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-12 col-sm pr-sm-0">
+                    <span>
+                        <label asp-for="Arrival" class="col-form-label"></label>
+                    </span>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <i class="fa fa-calendar rounded bg-info text-light input-group-text"></i>
+                        </div>
+                        <input id="arrival" asp-for="Arrival" class="form-control travel-date" data-input placeholder="Arrival date"/>
+                        <span asp-validation-for="Arrival" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-12 col-sm pr-sm-0">
+                    <span>
+                        <label asp-for="Departure" class="col-form-label"></label>
+                    </span>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <i class="fa fa-calendar rounded bg-info text-light input-group-text"></i>
+                        </div>
+                        <input id="departure" asp-for="Departure" class="form-control travel-date" data-input placeholder="Departure date"/>
+                        <span asp-validation-for="Departure" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-12 col-sm pr-sm-0">
+                    <span>
+                        <label asp-for="NumberOfGuests" class="col-form-label"></label>
+                    </span>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <i class="fa fa-users rounded bg-info text-light input-group-text"></i>
+                        </div>
+                        <input asp-for="NumberOfGuests" class="form-control" min="1" placeholder="Number of guests"/>
+                        <span asp-validation-for="NumberOfGuests" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-sm pr-sm-0">
+                    <br />
+                    <input type="submit" value="Search for available rooms" class="btn btn-primary btn-block">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

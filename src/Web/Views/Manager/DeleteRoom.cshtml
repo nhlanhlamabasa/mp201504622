@@ -1,0 +1,33 @@
+﻿@model HotelSystem.SharedKernel.ViewModels.RoomAmenityViewModel
+
+@{
+    ViewData["Title"] = "DeleteRoom";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>DeleteRoom</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>RoomAmenityViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AmenityId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AmenityId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.RoomId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RoomId)
+        </dd>
+    </dl>
+    
+    <form asp-action="DeleteRoom">
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

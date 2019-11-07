@@ -1,0 +1,102 @@
+﻿@model HotelSystem.SharedKernel.ViewModels.RoomViewModel
+
+@{
+    ViewData["Title"] = "AddRoom";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-sm-12 col-md-12">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-controller="Manager" asp-action="Index">Dashboard</a></li>
+            <li class="breadcrumb-item"><a asp-controller="Manager" asp-action="Rooms">Rooms</a></li>
+            <li class="breadcrumb-item active"><a asp-controller="Manager" asp-action="AddRoom">Add Room</a></li>
+        </ol>
+    </div>
+</div>
+
+<h4 class="pb-1">Add Room</h4>
+
+<hr />
+
+<div class="row">
+    <div class="col-md-5 col-sm-5">
+        <form asp-action="AddRoom">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                <div class="col">
+                    <h5>@Html.DisplayFor(model => model.HotelName)</h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="RoomType" class="control-label"></label>
+                        <select asp-for="RoomType" class="form-control" id="type">
+                            <option value="" disabled>Select room type</option>
+                            <option value="Single">Single</option>
+                            <option value="Double">Double</option>
+                            <option value="Triple">Triple</option>
+                        </select>
+                        <span asp-validation-for="RoomType" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label class="control-label">Number of beds</label>
+                        <input id="capacity" asp-for="Capacity" class="form-control" readonly type="number"/>
+                        <span asp-validation-for="Capacity" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="Cost" class="control-label"></label>
+                        <input id="cost" asp-for="Cost" class="form-control" readonly />
+                        <span asp-validation-for="Cost" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group pull-right">
+                        <a asp-action="Rooms" asp-controller="Manager" class="align-bottom pr-1">Back to List</a>
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+                </div>
+            </div>
+            <input asp-for="CreationTime" class="form-control" type="hidden" />
+            <input asp-for="HotelId" class="form-control" type="hidden" />
+            <input asp-for="Id" class="form-control" type="hidden" />
+            <input asp-for="ModifiedDate" class="form-control" type="hidden" />
+            <input asp-for="RoomNumber" class="form-control" type="hidden"/>
+            <input asp-for="HotelName" class="form-control" type="hidden" />
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#type').change(function () {
+                var type = $(this).find("option:selected").val();
+                if (type == "Single") {
+                    $('#cost').val(300);
+                    $('#capacity').val(1);
+                }
+                if (type == "Double") {
+                    $('#cost').val(500);
+                    $('#capacity').val(2);
+                }
+                if (type == "Triple") {
+                    $('#cost').val(700);
+                    $('#capacity').val(3);
+                }
+            });
+        });
+    </script>
+}

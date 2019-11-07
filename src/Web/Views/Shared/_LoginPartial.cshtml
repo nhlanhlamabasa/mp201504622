@@ -1,0 +1,25 @@
+﻿@using IdentityModel
+@inject IUserClaims claims
+
+
+@if (User.Identity.IsAuthenticated)
+
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hi @claims.GetClaim(JwtClaimTypes.Name.ToString())<b class="caret"></b></a>
+            <div class="dropdown-menu" aria-labelledby="dropdown03">
+                <a class="dropdown-item" asp-action="Logout" asp-controller="Account">Logout</a>
+            </div>
+        </li>
+    </ul>
+}
+else
+{
+    <li class="nav-item">
+        <a class="nav-link" asp-controller="Account" asp-action="Register">Register</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" asp-controller="Account" asp-action="Login">Login</a>
+    </li>
+}

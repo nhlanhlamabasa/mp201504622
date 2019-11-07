@@ -1,0 +1,73 @@
+﻿@using IdentityServer4.Extensions
+@{
+    string name = null;
+    if (!true.Equals(ViewData["signed-out"]))
+    {
+        name = Context.User?.GetDisplayName();
+    }
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blue Orb Hotel - IdentityServer</title>
+    <link rel="icon" type="image/x-icon" href="~/faveicon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="~/faveicon.ico" />
+    <link rel="stylesheet" href="~/css/font-awesome.css" />
+    <link rel="stylesheet" href="~/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/normalize.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a href="https://localhost:5007/Home/Index">
+            <span class="navbar-brand">
+                <img src="~/icon.png" class="icon-banner">
+                Blue Orb Hotel
+            </span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                @if (!string.IsNullOrWhiteSpace(name))
+                {
+                    <li>
+                        <a class="nav-link" href="https://localhost:5007/Home/Index">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@name <b class="caret"></b></a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown03">
+                            <a class="dropdown-item" asp-action="Logout" asp-controller="Account">Logout</a>
+                        </div>
+                    </li>
+                }
+                @if (string.IsNullOrWhiteSpace(name))
+                {
+                    <li>
+                        <a class="nav-link" href="https://localhost:5007/Home/Index">Home</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="https://localhost:5007/Account/Register">Register</a>
+                    </li>
+                    <li><a class="nav-link" asp-controller="Account" asp-action="Login">Login</a></li>
+                }
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <br />
+        @RenderBody()
+    </main>
+
+    <script src="~/js/normalize.js"></script>
+    <script src="~/js/popper.js"></script>
+    <script src="~/js/jquery.js"></script>
+    <script src="~/js/bootstrap.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

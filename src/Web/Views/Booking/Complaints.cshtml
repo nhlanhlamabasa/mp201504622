@@ -1,0 +1,112 @@
+﻿@model IEnumerable<HotelSystem.SharedKernel.ViewModels.ComplaintViewModel>
+@using Humanizer
+
+@{
+    ViewData["Title"] = "Complaints";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@functions
+{
+    public BookingStatus GetStatus(string status)
+    {
+        Enum.TryParse(status, out BookingStatus myStatus);
+        return myStatus;
+    }
+}
+
+<div class="row">
+    <div class="col-sm-12 col-md-12">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active"><a asp-controller="Booking" asp-action="Bookings">Bookings</a></li>
+        </ol>
+    </div>
+</div>
+
+
+<h4 class="pb-1">Your Complaints</h4>
+
+<p>
+    <div class="btn-group">
+        <a asp-controller="Booking" asp-action="Bookings" class="align-bottom btn">
+            <i class=" fa fa-arrow-left rounded bg-info text-light btn"></i>
+            Go to bookings to make a complaint
+        </a>
+    </div>
+</p>
+
+@if (Model == null)
+{
+    <hr />
+
+    <div class="row">
+        <div class="col text-center">
+            <img src="~/images/error/web_hi_res_512.png" class="img-fluid rounded" height="200" width="100" />
+        </div>
+    </div>
+}
+else
+{
+    <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ComplainType)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Description)
+                        </th>
+                        <th>
+                            Resolution Status
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.LevelOfSatisfaction)
+                        </th>
+                        <th>
+                            Last Modified
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ComplainType)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Description)
+                            </td>
+                            <td>
+                                @if (item.IsResolved == true)
+                                {
+                                    <span class="text text-success">Resolved</span>
+                                }
+                                else
+                                {
+                                    <span class="text text-info">Pending</span>
+                                }
+                            </td>
+                            <td>
+                                @if (item.IsResolved == true)
+                                {
+                                    
+                                    <a asp-controller="Bookings" asp-route-Id="@item.Id">Tell us how satisfied your are with resolution</a>
+                                }
+                                else
+                                {
+                                   
+                                }
+                            </td>
+                            <td>
+                                <span>@item.ModifiedDate.Humanize(true, DateTime.UtcNow, new CultureInfo("en-ZA"))</span>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+}

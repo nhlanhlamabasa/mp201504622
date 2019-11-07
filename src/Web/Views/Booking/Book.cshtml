@@ -1,0 +1,347 @@
+﻿@model BookingViewModel
+
+@{
+    ViewData["Title"] = "Book";
+}
+
+@functions{
+    int incrementIndex(int index) { return index++; }
+}
+
+<div class="row">
+    <div class="col-sm-12 col-md-12">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Booking</a></li>
+            <li class="breadcrumb-item"><a asp-controller="Booking" asp-action="SelectRooms">Select available rooms</a></li>
+            <li class="breadcrumb-item active"><a href="#">Book</a></li>
+        </ol>
+    </div>
+</div>
+
+<h4 class="pb-1">Booking</h4>
+
+<div class="row">
+    <div class="col-md-8 col-sm-8">
+        <form asp-controller="Booking" asp-action="Book" method="post">
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <span>
+                            <label asp-for="HotelName" class="col-form-label"></label>
+                        </span>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <i class="fa fa-hotel rounded bg-info text-light input-group-text"></i>
+                            </div>
+                            <input id="hotelName" asp-for="HotelName" class="form-control" readonly />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <span>
+                            <label asp-for="Arrival" class="control-label"></label>
+                        </span>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <i class="fa fa-calendar rounded bg-info text-light input-group-text"></i>
+                            </div>
+                            <input asp-for="Arrival" class="form-control" readonly />
+                            <span asp-validation-for="Arrival" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <span>
+                            <label asp-for="Departure" class="control-label"></label>
+                        </span>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <i class="fa fa-calendar rounded bg-info text-light input-group-text"></i>
+                            </div>
+                            <input id="hotelEnd" asp-for="Departure" class="form-control" placeholder="Number of Guests" data-input readonly />
+                            <span asp-validation-for="Departure" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <input type="hidden" asp-for="Id" class="form-control" readonly />
+            <input type="hidden" asp-for="HotelId" class="form-control" readonly />
+            <input type="hidden" asp-for="BookerId" class="form-control" readonly />
+            <input type="hidden" asp-for="NumSelectedRooms" class="form-control" readonly />
+            <input type="hidden" asp-for="Status" value="@BookingStatus.AwaitingPayment.ToString()" readonly />
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <span>
+                            <label asp-for="NumberOfGuests" class="control-label"></label>
+                        </span>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <i class="fa fa-users rounded bg-info text-light input-group-text"></i>
+                            </div>
+                            <input id="hotelGuests" asp-for="NumberOfGuests" class="form-control" readonly />
+                            <span asp-validation-for="NumberOfGuests" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <div class="btn-group btn-block">
+                            <button type="button" class="btn btn-block" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                Selected Rooms
+                                <span class="sr-only">Selected Rooms</span>
+                            </button>
+                            <button type="button" class="bg-info text-light btn">@Model.NumSelectedRooms</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        @if (Model.SelectedRooms != null)
+                        {
+                            <div class="collapse" id="collapseExample">
+                                <div class="card card-body">
+                                    @for (int i = 0; i < Model.SelectedRooms.Count; i++)
+                                    {
+
+                                        <div class="card w-50 border-0">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Room @incrementIndex(i)</h5>
+                                                <input type="hidden" name="Items.Index" />
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <div class="form-group">
+                                                            <label class="control-label">Room Number</label>
+                                                            <input asp-for="@Model.SelectedRooms[i].RoomNumber" readonly class="form-control" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="form-group">
+                                                            <label class="control-label">Room Cost</label>
+                                                            <input asp-for="@Model.SelectedRooms[i].StrCost" readonly class="form-control" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <input type="hidden" asp-for="@Model.SelectedRooms[i].HotelName" readonly />
+                                                <input type="hidden" asp-for="@Model.SelectedRooms[i].Capacity" readonly />
+                                                <input type="hidden" asp-for="@Model.SelectedRooms[i].Cost" readonly />
+                                                <input type="hidden" asp-for="@Model.SelectedRooms[i].HotelId" readonly />
+                                                <input type="hidden" asp-for="@Model.SelectedRooms[i].Id" readonly />
+                                                <input type="hidden" asp-for="@Model.SelectedRooms[i].RoomType" readonly />
+                                                <input type="hidden" asp-for="@Model.SelectedRooms[i].ImageName" readonly />
+                                                <input type="hidden" asp-for="@Model.SelectedRooms[i].ImageID" readonly />
+                                            </div>
+                                        </div>
+                                        <br />
+                                    }
+                                </div>
+                            </div>
+                        }
+                    </div>
+                    <span asp-validation-for="SelectedRooms" class="text-danger"></span>
+                </div>
+            </div>
+            <h4 class="pb-1">Invoice</h4>
+            <div class="row">
+                <div class="col">
+                    <input asp-for="@Model.Invoice.BookingId" type="hidden" />
+                    <input asp-for="@Model.Invoice.AppUser_BookerId" type="hidden" />
+                    <input asp-for="@Model.Invoice.Id" type="hidden" />
+                    <input asp-for="@Model.Invoice.Inv_Date" type="hidden" />
+                    @for (int i = 0; i < Model.Invoice.Lines.Count; i++)
+                    {
+                        <input type="hidden" name="Lines.Index" value="@i" />
+                        <input asp-for="@Model.Invoice.Lines[i].InvoiceId" value="@Model.Id" type="hidden" />
+                        <input asp-for="@Model.Invoice.Lines[i].Line_Units" type="hidden" />
+                        <input asp-for="@Model.Invoice.Lines[i].Room_Type" type="hidden" />
+                        <input asp-for="@Model.Invoice.Lines[i].Line_Price" type="hidden" />
+                    }
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Quantity</th>
+                                <th>Decription</th>
+                                <th>Unit Price</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                @for (int i = 0; i < Model.Invoice.Lines.Count; i++)
+                                {
+                                    <td>@Model.Invoice.Lines[i].Line_Units</td>
+                                    <td>@Model.Invoice.Lines[i].Room_Type</td>
+                                    <td>@Model.Invoice.Lines[i].Line_Price</td>
+                                    <td>@Model.Invoice.Lines[i].Total().ToString("C", new CultureInfo("en-ZA"))</td>
+                                }
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row pb-1">
+                <div class="col">
+                    <div class="form-group">
+                        <label class="font-weight-bold">Total Due:</label>
+                        <input class="form-control" value="@Model.Invoice.Total().ToString("C", new CultureInfo("en-ZA"))" readonly />
+                    </div>
+                </div>
+            </div>
+            <h4 class="pb-1">Payment</h4>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <span>
+                            <label class="control-label" asp-for="@Model.Payment.Payment_Method"></label>
+                            <span class="pull-right">
+                                <i class="fa fa-cc-visa custom"></i>
+                                <i class="fa fa-cc-mastercard custom"></i>
+                                <i class="fa fa-cc-amex custom"></i>
+                            </span>
+                        </span>
+                        <select class="form-control" asp-for="@Model.Payment.Payment_Method">
+                            <option value="" disabled>Select a payment method</option>
+                            <option value="CreditCard">
+                                Credit Card
+                            </option>
+                        </select>
+                        <span asp-validation-for="@Model.Payment.Payment_Method" class="text-danger"></span>
+                    </div>
+                </div>
+                <input type="hidden" asp-for="@Model.Payment.Id" />
+                <input type="hidden" asp-for="@Model.Payment.InvoiceId" />
+                <input type="hidden" asp-for="@Model.Payment.AmountPaid" />
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label class="control-label" asp-for="@Model.Payment.FirstName"></label>
+                        <input asp-for="@Model.Payment.FirstName" class="form-control" />
+                        <span asp-validation-for="@Model.Payment.FirstName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label class="control-label" asp-for="@Model.Payment.LastName"></label>
+                        <input asp-for="@Model.Payment.LastName" class="form-control" />
+                        <span asp-validation-for="@Model.Payment.LastName" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="@Model.Payment.CardNumber" class="control-label"></label>
+                        <input id="cc" asp-for="@Model.Payment.CardNumber" class="form-control" placeholder="5555 5555 5555 5555" />
+                        <span asp-validation-for="@Model.Payment.CardNumber" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="@Model.Payment.Expiration" class="control-label"></label>
+                        <input id="expiration" type="month" asp-for="@Model.Payment.Expiration" class="form-control" />
+                        <span class="text-danger" asp-validation-for="@Model.Payment.Expiration"></span>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="@Model.Payment.CVV" class="control-label"></label>
+                        <input asp-for="@Model.Payment.CVV" class="form-control" />
+                        <span asp-validation-for="@Model.Payment.CVV" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="@Model.Payment.PostalCode" class="control-label"></label>
+                        <input asp-for="@Model.Payment.PostalCode" class="form-control" />
+                        <span asp-validation-for="@Model.Payment.PostalCode" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="@Model.Payment.Country" class="control-label"></label>
+                        @*<select id="countries" asp-items="@Countries.SelectListCountries()" class="form-control">
+                        <option disabled>Please select your country</option>
+                    </select>*@
+                        <input class="form-control" id="country" asp-for="@Model.Payment.Country" />
+                        <span asp-validation-for="@Model.Payment.Country" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group pull-right">
+                        <a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary">Cancel</a>
+                        <input type="submit" value="Proceed" class="btn btn-primary" />
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script type="text/javascript" src="~/js/flatpickr.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            onload = function () {
+                document.getElementById('cc').oninput = function () {
+                    this.value = cc_format(this.value)
+                }
+            }
+
+            $('#country').val(('#countries').find(":selected").val());
+
+            $('#countries').on('change', function () {
+                $('#country').val($(this).find(":selected").val());
+            });
+
+        });
+
+        var optional_config = {
+
+            minDate: "today",
+            dateFormat: "m/Y",
+            maxDate: "12/2023"
+        };
+
+        $('#expiration').flatpickr(optional_config);
+
+        function cc_format(value) {
+            var v = value.replace(/\s+/g, '').replace(/[^0-9]/gi, '')
+            var matches = v.match(/\d{4,16}/g);
+            var match = matches && matches[0] || ''
+            var parts = []
+            for (i = 0, len = match.length; i < len; i += 4) {
+                parts.push(match.substring(i, i + 4))
+            }
+            if (parts.length) {
+                return parts.join(' ')
+            } else {
+                return value
+            }
+        }
+    </script>
+}

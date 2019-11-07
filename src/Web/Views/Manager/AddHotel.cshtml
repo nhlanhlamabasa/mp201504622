@@ -1,0 +1,114 @@
+﻿@model HotelSystem.SharedKernel.ViewModels.HotelViewModel
+
+@{
+    ViewData["Title"] = "AddHotel";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-sm-12 col-md-12">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-controller="Manager" asp-action="Index">Dashboard</a></li>
+            <li class="breadcrumb-item"><a asp-controller="Manager" asp-action="Hotels">Hotels</a></li>
+			<li class="breadcrumb-item active"><a asp-controller="Manager" asp-action="AddHotel">Add Hotel</a></li>
+        </ol>
+    </div>
+</div>
+
+
+<h4 class="pb-1">Add Hotel</h4>
+
+<hr />
+
+<div class="row">
+    <div class="col-md-5 col-sm-5">
+        <form asp-action="AddHotel">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="City" class="control-label"></label>
+                        <input asp-for="City" class="form-control" />
+                        <span asp-validation-for="City" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="Country" class="control-label"></label>
+                        <input asp-for="Country" class="form-control" />
+                        <span asp-validation-for="Country" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="PostalCode" class="control-label"></label>
+                        <input asp-for="PostalCode" class="form-control" />
+                        <span asp-validation-for="PostalCode" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="Name" class="control-label"></label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="Province" class="control-label"></label>
+                        <input asp-for="Province" class="form-control" />
+                        <span asp-validation-for="Province" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="Rating" class="control-label"></label>
+                        <select asp-for="Rating" class="form-control">
+                            <option value="One_Star">One Star</option>
+                            <option value="One_Star">Two Star</option>
+                            <option value="One_Star">Three Star</option>
+                            <option value="One_Star">Four Star</option>
+                            <option value="One_Star">Five Star</option>
+                        </select>
+                        <span asp-validation-for="Rating" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="Street" class="control-label"></label>
+                        <input asp-for="Street" class="form-control" />
+                        <span asp-validation-for="Street" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <input asp-for="Id" class="form-control" type="hidden" />
+            <input asp-for="ManagerId" class="form-control" type="hidden" />
+            <input asp-for="CreationTime" class="form-control" type="hidden" />
+            <input asp-for="ModifiedDate" class="form-control" type="hidden" />
+            <div class="row">
+                <div class="col">
+                    <div class="form-group pull-right">
+                        <a asp-action="Hotels" asp-controller="Manager" class="align-bottom">Back to List</a>
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
